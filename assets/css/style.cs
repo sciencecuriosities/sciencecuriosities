@@ -1,5 +1,4 @@
 /* 1. THE ESSENTIAL RESET */
-/* This ensures padding doesn't "push" the width wider than the screen */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -8,42 +7,53 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* This is the final safety net for horizontal scrolling */
-  overflow-x: hidden; 
+  overflow-x: hidden; /* Stops horizontal scrolling */
 }
 
-/* 2. HEADER & BANNER */
-.site-header {
-  width: 100%;
-  position: relative;
-  /* Removes any accidental gaps */
-  display: flex;
-  flex-direction: column;
-}
-
+/* 2. BANNER - This ensures the image always fits the screen */
 .banner-image {
   width: 100%;
-  max-width: 100%;
-  height: auto;
+  height: auto;       /* Keeps the image in proportion */
   display: block;
+  max-width: 100%;
 }
 
-/* 3. CONTENT SCALING */
-/* This ensures your title and text stay inside the screen */
-.title-pill, .site-nav, main, footer {
+/* 3. TITLE PILL - Preventing the "Stretch" */
+.title-pill {
   width: 100%;
-  max-width: 100%;
-  padding: 0 20px; /* Gives your text some breathing room from the edges */
+  padding: 0 10px;    /* Keeps text from hitting the very edge */
   text-align: center;
 }
 
-/* Make sure the title doesn't force a specific width */
 h1 {
-  word-wrap: break-word;
-  font-size: 1.5rem; /* Adjusts size for mobile */
+  margin: 10px 0;
+  word-wrap: break-word; /* Allows long words to break if they have to */
+  font-size: 2.5rem;     /* Desktop size */
 }
 
-/* 4. NAVIGATION */
+/* 4. THE MOBILE FIX */
+/* When the screen is 600px wide or less... */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;   /* Shrinks the title so it doesn't stretch the page */
+  }
+  
+  .banner-image {
+    /* Ensures the full width of the banner is visible on mobile */
+    width: 100vw; 
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* 5. NAV & MAIN */
+.site-nav, main {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
 .site-nav a {
   display: inline-block;
   padding: 10px;
