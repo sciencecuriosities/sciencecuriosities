@@ -70,14 +70,21 @@ body {
 
 .menu-toggle {
   position: absolute;
-  top: 12%;
+  top: 6%;
   left: 3%;
-  background: none;
+  background: rgba(230, 210, 200, 0.95); /* pale terracotta */
   border: none;
-  font-size: clamp(24px, 3vw, 36px);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
   cursor: pointer;
-  z-index: 2;
-}
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+                              }
 
 /* =========================
    PAGE CONTENT
