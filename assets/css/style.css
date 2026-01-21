@@ -1,55 +1,90 @@
-/* 1. THE RESET */
-*, *::before, *::after {
+/* =========================
+   BASIC RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  font-family: system-ui, sans-serif;
 }
 
-/* 2. THE ANCHOR (The Header) */
+/* =========================
+   HEADER / BANNER
+   ========================= */
+
 .site-header {
-  position: relative; /* This "anchors" the title to the header */
+  position: relative;
   width: 100%;
-  overflow: hidden;   /* Keeps everything contained */
+  aspect-ratio: 16 / 5;
+  background-image: url("../images/banner-faded.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-/* 3. THE BANNER */
-.banner-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+/* =========================
+   TITLE PILL
+   ========================= */
 
-/* 4. THE TITLE PILL (The Overlay) */
 .title-pill {
-  position: absolute;  /* Places it ON TOP of the banner */
-  top: 50%;            /* Moves it to the middle vertically */
-  left: 50%;           /* Moves it to the middle horizontally */
-  transform: translate(-50%, -50%); /* Perfectly centers the pill */
-  
-  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
-  padding: 10px 20px;
-  border-radius: 50px; /* Makes it look like a pill */
-  white-space: nowrap; /* Prevents the text from wrapping inside the pill */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 5. THE TEXT (Consistent Scaling) */
-h1 {
+.title-pill h1 {
   margin: 0;
-  color: #333;
-  font-family: sans-serif;
-  /* This special "clamp" rule makes the text scale perfectly with the screen */
-  font-size: clamp(14px, 4vw, 40px); 
+  padding: 0.6em 1.4em;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  display: flex;
+  gap: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-size: clamp(18px, 3.5vw, 56px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  white-space: nowrap;
 }
 
-/* 6. NAVIGATION & OTHER CONTENT */
-.site-nav, main, footer {
-  width: 100%;
+.title-pill .science {
+  color: #0b3c8c;
+}
+
+.title-pill .curiosities {
+  color: #0a8a6a;
+}
+
+/* =========================
+   BURGER BUTTON
+   ========================= */
+
+.menu-toggle {
+  position: absolute;
+  top: 12%;
+  left: 3%;
+  background: none;
+  border: none;
+  font-size: clamp(24px, 3vw, 36px);
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* =========================
+   PAGE CONTENT
+   ========================= */
+
+main,
+footer {
   padding: 20px;
   text-align: center;
 }
