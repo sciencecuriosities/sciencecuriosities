@@ -7,3 +7,10 @@
   height: auto;
   display: block;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+html, body {
+  overflow-x: hidden;
+}
