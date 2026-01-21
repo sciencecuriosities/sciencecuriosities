@@ -10,63 +10,12 @@ html, body {
   overflow-x: hidden;
 }
 
-/* HEADER CONTAINER */
+/* 2. THE ANCHOR (The Header) */
 .site-header {
-  position: relative;
+  position: relative; /* This "anchors" the title to the header */
   width: 100%;
-  aspect-ratio: 16 / 5; /* Controls banner height proportion */
-  background-image: url("../images/banner-faded.png");
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
+  overflow: hidden;   /* Keeps everything contained */
 }
-
-/* TITLE PILL */
-.title-pill {
-  position: absolute;
-  inset: 0; /* shorthand for top/right/bottom/left: 0 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* PILL SHAPE */
-.title-pill h1 {
-  margin: 0;
-  padding: 0.6em 1.4em;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 999px;
-  font-family: system-ui, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  display: flex;
-  gap: 0.3em;
-  font-size: clamp(18px, 3.5vw, 56px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-  white-space: nowrap;
-}
-
-/* COLOUR SPLIT */
-.title-pill .science {
-  color: #0b3c8c;
-}
-
-.title-pill .curiosities {
-  color: #0a8a6a;
-}
-
-/* BURGER BUTTON */
-.menu-toggle {
-  position: absolute;
-  top: 12%;
-  left: 3%;
-  background: none;
-  border: none;
-  font-size: clamp(24px, 3vw, 36px);
-  cursor: pointer;
-  z-index: 2;
-}
-
 
 /* 3. THE BANNER */
 .banner-image {
