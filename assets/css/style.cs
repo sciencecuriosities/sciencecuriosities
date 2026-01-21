@@ -1,16 +1,17 @@
-.site-header {
-  height: auto;
-  min-height: 0;
+html, body {
+  overflow-x: hidden;
 }
-.banner-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+
 img {
   max-width: 100%;
   height: auto;
 }
-html, body {
-  overflow-x: hidden;
+
+.site-header {
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  display: block;
 }
