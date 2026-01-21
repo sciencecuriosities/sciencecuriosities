@@ -70,9 +70,9 @@ body {
 
 .menu-toggle {
   position: absolute;
-  top: 6%;
-  left: 3%;
-  background: rgba(230, 210, 200, 0.95); /* pale terracotta */
+  top: 3%;
+  left: 2%;
+  background: #fef4f2; /* exact Canva colour */
   border: none;
   border-radius: 50%;
   width: 44px;
@@ -84,7 +84,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-                              }
+   }
 
 /* =========================
    PAGE CONTENT
