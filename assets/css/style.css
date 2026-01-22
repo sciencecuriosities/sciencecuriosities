@@ -111,25 +111,32 @@ footer {
 /* NAVIGATION PANEL*/
 
 /* Update your existing .site-nav rule */
-.site-nav a {
-  display: block;
+.site-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 40ch; /* roughly centre-third feel on most screens */
-  padding: 14px 20px;
-  margin: 0 auto;
 
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: clamp(16px, 3vw, 22px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: rgba(254, 244, 242, 0.98);
 
-  color: #333;
-  text-decoration: none;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  transition: background-color 0.25s ease, color 0.25s ease;
+  /* CLOSED STATE */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+
+  transition:
+    max-height 0.85s ease,
+    opacity 0.35s ease,
+    padding 0.85s ease;
+
+  z-index: 5;
 }
-
 /* Update your existing .site-nav.open rule */
 .site-nav.open {
   max-height: 220px;
