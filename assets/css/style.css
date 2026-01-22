@@ -109,39 +109,39 @@ footer {
 /* Update your existing .site-nav rule */
 .site-nav {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
+
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(6px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 
-  /* State when closed */
   max-height: 0;
-  opacity: 0; 
+  opacity: 0;
   overflow: hidden;
-  padding: 0; /* Ensure padding is 0 when closed */
-  
-  /* Use a slightly faster transition for a snappier feel */
-  transition: max-height 0.5s ease-in-out, opacity 0.3s ease, padding 0.5s ease;
-  z-index: 2;
+  padding: 0;
+
+  transition:
+    max-height 0.85s ease,
+    opacity 0.4s ease,
+    padding 0.85s ease;
+
+  z-index: 5; /* Above banner and pill */
 }
 
 /* Update your existing .site-nav.open rule */
 .site-nav.open {
-  max-height: 400px; /* Needs to be larger than the content */
+  max-height: 400px;
   opacity: 1;
-  padding: 40px 0; /* Padding is added back only when open */
+  padding: 80px 0 40px; /* space for burger button */
 }
 
-.site-nav.open {
-  max-height: 400px; /* Needs to be larger than the content */
-  opacity: 1;
-  padding: 40px 0; /* Padding is added back only when open */
-}
+
 .site-nav a {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(16px, 3vw, 22px);
