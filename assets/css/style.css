@@ -155,6 +155,8 @@ footer {
   text-decoration: none;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background-color: rgba(11, 60, 140, 0.08); /* soft blue tint */
   color: #0b3c8c;
 }
