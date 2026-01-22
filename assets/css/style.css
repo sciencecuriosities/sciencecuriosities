@@ -27,7 +27,7 @@ body {
   background-image: url("../images/banner-faded.png");
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* =========================
