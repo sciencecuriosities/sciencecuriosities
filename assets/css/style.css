@@ -106,31 +106,41 @@ footer {
 
 /* NAVIGATION PANEL*/
 
+/* Update your existing .site-nav rule */
 .site-nav {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(6px);
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(16px, 3vw, 28px);
+  gap: 20px;
 
-  padding: 0;
+  /* State when closed */
   max-height: 0;
+  opacity: 0; 
   overflow: hidden;
-
-  transition: max-height 0.85s ease;
+  padding: 0; /* Ensure padding is 0 when closed */
+  
+  /* Use a slightly faster transition for a snappier feel */
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease, padding 0.5s ease;
   z-index: 2;
 }
 
+/* Update your existing .site-nav.open rule */
 .site-nav.open {
-  max-height: 300px;
-  padding: clamp(20px, 4vw, 40px) 0;
+  max-height: 400px; /* Needs to be larger than the content */
+  opacity: 1;
+  padding: 40px 0; /* Padding is added back only when open */
+}
+
+.site-nav.open {
+  max-height: 400px; /* Needs to be larger than the content */
+  opacity: 1;
+  padding: 40px 0; /* Padding is added back only when open */
 }
 .site-nav a {
   font-family: "Montserrat", system-ui, sans-serif;
