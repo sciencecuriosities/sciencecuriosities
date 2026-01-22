@@ -11,14 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<script>
-  const menuButton = document.querySelector('.menu-toggle');
-  const nav = document.getElementById('site-nav');
-
-  menuButton.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
 
 <body>
 
@@ -54,6 +46,13 @@
   <footer>
     <p>Contact: info@sciencecuriosities.co.uk</p>
   </footer>
+<script>
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('site-nav');
 
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
 </body>
 </html>
