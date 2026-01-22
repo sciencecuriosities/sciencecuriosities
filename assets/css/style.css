@@ -242,3 +242,13 @@ footer {
 .range-image {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+/* =========================
+   MOBILE: 2 x 2 ICON GRID
+   ========================= */
+
+@media (max-width: 640px) {
+  .range-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
