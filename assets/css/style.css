@@ -229,11 +229,6 @@ footer {
   }
 }
 
-@media (max-width: 500px) {
-  .range-grid {
-    grid-template-columns: 1fr;
-  }
-}
 .range-card:hover .range-image {
   transform: translateY(-4px);
   box-shadow: 0 14px 28px rgba(0,0,0,0.16);
