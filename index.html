@@ -52,10 +52,32 @@
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.getElementById('site-nav');
     const icon = menuButton.querySelector('.icon');
+    const menuLinks = nav.querySelectorAll('a');
 
-    menuButton.addEventListener('click', () => {
+    function closeMenu() {
+      nav.classList.remove('open');
+      icon.textContent = '☰';
+    }
+
+    // Toggle menu on button click
+    menuButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent document click from firing
       const isOpen = nav.classList.toggle('open');
       icon.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close menu when clicking a link
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+        closeMenu();
+      }
     });
   });
 </script>
