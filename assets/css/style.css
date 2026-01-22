@@ -67,6 +67,9 @@ body {
 .title-pill .curiosities {
   color: #0a8a6a;
 }
+.title-pill {
+  z-index: 2;
+}
 
 /* =========================
    BURGER BUTTON
@@ -83,7 +86,7 @@ body {
   height: 44px;
   font-size: 26px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 6;
 
   display: flex;
   align-items: center;
@@ -109,7 +112,7 @@ footer {
 /* Update your existing .site-nav rule */
 .site-nav {
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 0;
   width: 100%;
 
@@ -138,7 +141,7 @@ footer {
 .site-nav.open {
   max-height: 400px;
   opacity: 1;
-  padding: 80px 0 40px; /* space for burger button */
+  padding: 30px 0 40px; /* space for burger button */
 }
 
 
