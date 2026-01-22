@@ -141,11 +141,18 @@ footer {
 .site-nav.open {
   max-height: 220px;
   opacity: 1;
-  padding: 50px 0 28px; /* space for burger button */
+  padding: 50px 0 28px;
++ pointer-events: auto;
 }
 
 
 .site-nav a {
+  display: block;
+  width: 100%;
+  max-width: 40ch;
+  margin: 0 auto;
+  padding: 14px 20px;
+
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(16px, 3vw, 22px);
   letter-spacing: 0.08em;
@@ -153,6 +160,9 @@ footer {
 
   color: #333;
   text-decoration: none;
+  border-radius: 12px;
+
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .site-nav a:hover,
