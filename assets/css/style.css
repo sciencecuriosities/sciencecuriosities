@@ -74,8 +74,8 @@ body {
 
 .menu-toggle {
   position: absolute;
-  top: 2%;
-  left: 1%;
+  top: 1.25%;
+  left: 1.25%;
   background: #fef4f2; /* exact Canva colour */
   border: none;
   border-radius: 50%;
