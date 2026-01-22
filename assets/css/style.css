@@ -86,7 +86,7 @@ body {
   height: 44px;
   font-size: 26px;
   cursor: pointer;
-  z-index: 6;
+  z-index: 10;
 
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@ footer {
   left: 0;
   width: 100%;
 
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(254, 244, 242, 0.97);
   backdrop-filter: blur(6px);
 
   display: flex;
@@ -134,14 +134,14 @@ footer {
     opacity 0.4s ease,
     padding 0.85s ease;
 
-  z-index: 5; /* Above banner and pill */
+  z-index: 4; /* Above banner and pill */
 }
 
 /* Update your existing .site-nav.open rule */
 .site-nav.open {
-  max-height: 400px;
+  max-height: 240px;
   opacity: 1;
-  padding: 30px 0 40px; /* space for burger button */
+  padding: 60px 0 30px; /* space for burger button */
 }
 
 
