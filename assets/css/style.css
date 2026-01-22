@@ -28,6 +28,7 @@ body {
   background-size: cover;
   background-position: center;
   overflow: visible;
+  z-index: 1;
 }
 
 /* =========================
@@ -112,7 +113,7 @@ footer {
 /* Update your existing .site-nav rule */
 .site-nav {
   position: absolute;
-  top: 60px;
+  top: 0;
   left: 0;
   width: 100%;
 
@@ -134,14 +135,14 @@ footer {
     opacity 0.4s ease,
     padding 0.85s ease;
 
-  z-index: 4; /* Above banner and pill */
+  z-index: 5; /* Above banner and pill */
 }
 
 /* Update your existing .site-nav.open rule */
 .site-nav.open {
-  max-height: 240px;
+  max-height: 220px;
   opacity: 1;
-  padding: 60px 0 30px; /* space for burger button */
+  padding: 50px 0 28px; /* space for burger button */
 }
 
 
