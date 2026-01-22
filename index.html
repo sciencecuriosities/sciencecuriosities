@@ -16,8 +16,9 @@
 
   <header class="site-header">
     <button class="menu-toggle" aria-label="Open menu">
-      ☰
-    </button>
+  <span class="icon">☰</span>
+</button>
+
 <nav class="site-nav" id="site-nav">
   <a href="#">Home</a>
   <a href="#">Ranges</a>
@@ -49,10 +50,13 @@
 <script>
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
+  const icon = menuButton.querySelector('.icon');
 
   menuButton.addEventListener('click', () => {
     nav.classList.toggle('open');
+    icon.textContent = nav.classList.contains('open') ? '✕' : '☰';
   });
 </script>
+
 </body>
 </html>
