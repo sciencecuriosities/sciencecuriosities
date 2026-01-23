@@ -142,28 +142,31 @@ text-align: center;
   color: #0a8a6a; /* title green */
 }
 @media (max-width: 640px) {
-@media (max-width: 640px) {
   .welcome {
-    font-size: clamp(14px, 4.2vw, 16px);
-    line-height: 1.4;
+    /* Adjusted clamp: Minimum 11px, scales with width, max 16px */
+    font-size: clamp(11px, 3.8vw, 16px); 
+    line-height: 1.5;
     text-align: center;
-    padding: 0 12px;   /* real edge safety */
+    padding: 0 15px; /* Added a bit more breathing room on the sides */
+    overflow: visible; /* Prevent clipping */
   }
 
   .welcome span {
-    display: block;
-    white-space: nowrap;   /* still one line each */
-    letter-spacing: 0.06em;
+    display: block; /* Keeps them on separate lines */
+    white-space: nowrap; /* Forces single line per span */
+    letter-spacing: 0.02em; /* Reduced from 0.06em to save space */
   }
 
   .welcome-green {
-    letter-spacing: 0.04em; /* longer sentence = tighter tracking */
+    /* The green sentence is longer, so we tighten it slightly more */
+    letter-spacing: 0.01em; 
   }
 }
 
-@media (max-width: 360px) {
+/* Extra safety for very small screens (under 330px) */
+@media (max-width: 330px) {
   .welcome {
-    font-size: clamp(13px, 4vw, 14px);
+    font-size: 10px;
   }
 }
 /* NAVIGATION PANEL*/
