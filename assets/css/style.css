@@ -29,6 +29,8 @@ body {
   background-position: center;
   overflow: visible;
   z-index: 1;
+   background-position: center center; /* Keeps the heart of the collage centered */
+  background-repeat: no-repeat;
 }
 @media (min-width: 900px) {
   .site-header {
@@ -107,9 +109,9 @@ body {
    PAGE CONTENT
    ========================= */
 
-main,
-footer {
-  padding: 20px;
+/* Find this near the top and update it: */
+main {
+  padding: 10px 20px; /* 10px top/bottom, 20px sides */
   text-align: center;
 }
 @media (max-width: 640px) {
@@ -343,26 +345,29 @@ text-align: center;
   .title-pill h1 {
     max-width: 92vw;
   }
+/* =========================
+   CLEANUP & RESPONSIVE FIXES
+   ========================= */
 
-  /* Reclaim vertical space */
+/* 1. DESKTOP ONLY: Tighten spacing to keep labels on screen */
+@media (min-width: 901px) {
   main {
-    padding-top: 12px;
+    padding-top: 10px; 
   }
-
   .ranges {
-    margin-top: 24px;
+    margin-top: 0px; 
   }
+}
 
-
+/* 2. MOBILE ONLY (640px and below): 2x2 Grid and Tight Spacing */
 @media (max-width: 640px) {
-
-  /* Banner: slightly shorter, less cropping */
+  /* Banner: Adjust aspect ratio to show more collage height */
   .site-header {
     aspect-ratio: 8 / 5;
     background-position: center top;
   }
 
-  /* Title: strong but contained */
+  /* Title: Maintain size but ensure it doesn't overflow */
   .title-pill h1 {
     font-size: clamp(22px, 6vw, 34px);
     font-weight: 600;
@@ -372,10 +377,14 @@ text-align: center;
     justify-content: center;
   }
 
-  /* Pull content upward */
+  /* Pull content upward to eliminate the gap */
   main {
-    padding-top: 12px;
+    padding-top: 8px; /* Reduced from 12px */
     padding-bottom: 16px;
+  }
+
+  .ranges {
+    margin-top: 10px;
   }
 
   /* 2 × 2 icon grid */
@@ -383,4 +392,9 @@ text-align: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
+}
+
+/* 3. UNIVERSAL: Title containment */
+.title-pill h1 {
+  max-width: 92vw;
 }
