@@ -30,6 +30,12 @@ body {
   overflow: visible;
   z-index: 1;
 }
+@media (max-width: 640px) {
+  .site-header {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 
 /* =========================
    TITLE PILL
@@ -247,3 +253,9 @@ footer {
     gap: 16px;
   }
 }
+@media (max-width: 640px) {
+  .ranges {
+    margin-top: 60px;
+  }
+}
+
