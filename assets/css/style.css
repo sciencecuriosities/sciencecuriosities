@@ -283,7 +283,7 @@ text-align: center;
 }
 
 .range-card h2 {
-  margin-top: 12px;
+  margin-top: 8px;
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(14px, 2vw, 18px);
   letter-spacing: 0.08em;
@@ -329,6 +329,12 @@ text-align: center;
 .range-image {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+@media (min-width: 900px) {
+  .range-card h2 {
+    margin-top: 6px;
+  }
+}
+
 /* =========================
    MOBILE: 2 x 2 ICON GRID
    ========================= */
