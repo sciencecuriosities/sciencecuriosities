@@ -112,6 +112,13 @@ footer {
   padding: 20px;
   text-align: center;
 }
+@media (max-width: 640px) {
+  main {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
 .welcome {
   margin: 0;
   padding: 0;
