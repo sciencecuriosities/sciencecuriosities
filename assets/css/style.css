@@ -141,16 +141,25 @@ text-align: center;
 .welcome-green {
   color: #0a8a6a; /* title green */
 }
+@media (max-width: 640px) {
+  .welcome {
+    font-size: 18px;        /* adjust as needed */
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .welcome span {
+    display: block;         /* stack vertically */
+    white-space: nowrap;    /* keep each sentence on a single line */
+  }
+}
+
 @media (max-width: 360px) {
   .welcome {
-    font-size: 12px;
+    font-size: 12px;        /* tiny phones */
     letter-spacing: 0.1em;
   }
 }
-@media (max-width: 640px) {
-  .welcome span {
-    display: block;   /* forces line break */
-  }
 
   .welcome {
     font-size: 18px;
