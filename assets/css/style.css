@@ -168,7 +168,11 @@ text-align: center;
     letter-spacing: 0.02em;
   }
 }
-
+@media (max-width: 640px) {
+  .welcome-green {
+    font-size: 0.95em;   /* 5% smaller than blue */
+  }
+}
 
 /* Extra safety for very small screens (under 330px) */
 @media (max-width: 330px) {
@@ -176,6 +180,12 @@ text-align: center;
     font-size: 10px;
   }
 }
+@media (max-width: 360px) {
+  .welcome-green {
+    font-size: 0.92em;
+  }
+}
+
 /* NAVIGATION PANEL*/
 
 /* Update your existing .site-nav rule */
