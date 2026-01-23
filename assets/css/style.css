@@ -32,7 +32,7 @@ body {
 }
 @media (max-width: 640px) {
   .site-header {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 6 / 5;
   }
 }
 @media (max-width: 640px) {
@@ -280,5 +280,32 @@ footer {
   .ranges {
     margin-top: 40px;
   }
+}
+@media (max-width: 640px) {
+
+  /* Banner balance */
+  .site-header {
+    aspect-ratio: 6 / 5;
+    background-position: center top;
+  }
+
+  /* Title containment */
+  .title-pill h1 {
+    max-width: 92vw;
+  }
+
+  /* Reclaim vertical space */
+  main {
+    padding-top: 12px;
+  }
+
+  .ranges {
+    margin-top: 24px;
+  }
+
+}
+
+  }
+
 }
 
