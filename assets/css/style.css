@@ -155,13 +155,13 @@ text-align: center;
     display: block; /* Keeps them on separate lines */
     white-space: nowrap; /* Forces single line per span */
     letter-spacing: 0.02em; /* Reduced from 0.06em to save space */
-     margin-right: -0.05em;
+     margin-right: -0.02em;
   }
 
   .welcome-green {
     /* The green sentence is longer, so we tighten it slightly more */
     letter-spacing: 0.01em; 
-     margin-right: -0.02em;
+     margin-right: -0.01em;
   }
 }
 
