@@ -47,7 +47,7 @@ body {
   .site-header {
     /* Lowering this from 55vh to 35vh keeps the banner 
        from taking up half the screen on desktop */
-    max-height: 35vh; 
+    max-height: 45vh; 
   }
 }
 
