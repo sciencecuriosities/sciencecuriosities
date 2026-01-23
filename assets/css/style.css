@@ -130,6 +130,9 @@ text-align: center;
   overflow: hidden;
   text-overflow: clip;
 }
+.welcome span {
+  display: inline;
+}
 
 .welcome-blue {
   color: #0b3c8c; /* company blue */
@@ -144,7 +147,16 @@ text-align: center;
     letter-spacing: 0.1em;
   }
 }
+@media (max-width: 640px) {
+  .welcome span {
+    display: block;   /* forces line break */
+  }
 
+  .welcome {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
 /* NAVIGATION PANEL*/
 
 /* Update your existing .site-nav rule */
