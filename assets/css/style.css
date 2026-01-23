@@ -161,7 +161,7 @@ text-align: center;
   .welcome-green {
     /* The green sentence is longer, so we tighten it slightly more */
     letter-spacing: 0.01em; 
-     margin-right: -0.01em;
+     margin-right: -0.03em;
   }
 }
 
