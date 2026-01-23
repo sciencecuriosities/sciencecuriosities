@@ -143,27 +143,24 @@ text-align: center;
 }
 @media (max-width: 640px) {
   .welcome {
-    font-size: 18px;        /* adjust as needed */
+    font-size: 16px;
     line-height: 1.4;
     text-align: center;
+    padding: 0 8px;          /* gives breathing room at screen edges */
   }
 
   .welcome span {
-    display: block;         /* stack vertically */
-    white-space: nowrap;    /* keep each sentence on a single line */
+    display: block;
+    white-space: nowrap;     /* one line per sentence */
+    max-width: 100%;
+    overflow: visible;       /* prevent clipping */
   }
 }
 
 @media (max-width: 360px) {
   .welcome {
-    font-size: 12px;        /* tiny phones */
-    letter-spacing: 0.1em;
-  }
-}
-
-  .welcome {
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 14px;         /* very small phones */
+    letter-spacing: 0.08em;
   }
 }
 /* NAVIGATION PANEL*/
