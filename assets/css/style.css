@@ -30,16 +30,6 @@ body {
   overflow: visible;
   z-index: 1;
 }
-@media (max-width: 640px) {
-  .site-header {
-    aspect-ratio: 6 / 5;
-  }
-}
-@media (max-width: 640px) {
-  .site-header {
-    background-position: center top;
-  }
-}
 @media (min-width: 900px) {
   .site-header {
     max-height: 55vh;
@@ -85,20 +75,6 @@ body {
 }
 .title-pill {
   z-index: 2;
-}
-@media (max-width: 640px) {
-  .title-pill h1 {
-    font-size: clamp(22px, 6vw, 34px);
-    font-weight: 600;
-    padding: 0.7em 1.6em;
-    letter-spacing: 0.14em;
-  }
-}
-@media (max-width: 640px) {
-  .title-pill h1 {
-    max-width: 92vw;
-    justify-content: center;
-  }
 }
 
 /* =========================
@@ -257,7 +233,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 .range-card:hover .range-image {
   transform: translateY(-4px);
   box-shadow: 0 14px 28px rgba(0,0,0,0.16);
@@ -269,25 +244,6 @@ footer {
 /* =========================
    MOBILE: 2 x 2 ICON GRID
    ========================= */
-
-@media (max-width: 640px) {
-  .range-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-@media (max-width: 640px) {
-  .ranges {
-    margin-top: 40px;
-  }
-}
-@media (max-width: 640px) {
-
-  /* Banner balance */
-  .site-header {
-    aspect-ratio: 6 / 5;
-    background-position: center top;
-  }
 
   /* Title containment */
   .title-pill h1 {
@@ -303,9 +259,39 @@ footer {
     margin-top: 24px;
   }
 
-}
 
+@media (max-width: 640px) {
+
+  /* Banner: slightly shorter, less cropping */
+  .site-header {
+    aspect-ratio: 7 / 5;
+    background-position: center top;
   }
 
+  /* Title: strong but contained */
+  .title-pill h1 {
+    font-size: clamp(22px, 6vw, 34px);
+    font-weight: 600;
+    padding: 0.6em 1.4em;
+    letter-spacing: 0.14em;
+    max-width: 92vw;
+    justify-content: center;
+  }
+
+  /* Pull content upward */
+  main {
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+
+  .ranges {
+    margin-top: 20px;
+  }
+
+  /* 2 × 2 icon grid */
+  .range-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }
 
