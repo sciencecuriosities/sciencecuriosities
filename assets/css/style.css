@@ -145,23 +145,20 @@ text-align: center;
   .welcome {
     /* Adjusted clamp: Minimum 11px, scales with width, max 16px */
     font-size: clamp(11px, 3.8vw, 16px); 
-    line-height: 1.5;
+    line-height: 1.4;
     text-align: center;
-    padding: 0 15px; /* Added a bit more breathing room on the sides */
-    overflow: visible; /* Prevent clipping */
+    padding-inline: 8px; /* Added a bit more breathing room on the sides */
   }
 
   .welcome span {
     display: block; /* Keeps them on separate lines */
     white-space: nowrap; /* Forces single line per span */
     letter-spacing: 0.05em; /* Reduced from 0.06em to save space */
-     margin-right: -0.05em;
   }
 
   .welcome-green {
     /* The green sentence is longer, so we tighten it slightly more */
     letter-spacing: 0.02em; 
-     margin-right: -0.02em;
   }
 }
 
