@@ -266,13 +266,13 @@ text-align: center;
   color: #0b3c8c;
 }
 .ranges {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .range-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
   max-width: 1100px;
   margin: 0 auto;
 }
