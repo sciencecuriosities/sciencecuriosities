@@ -146,21 +146,22 @@ text-align: center;
     font-size: clamp(11px, 3.8vw, 16px);
     line-height: 1.4;
     text-align: center;
-    padding: 0 16px;
+
+    /* THIS is the key change */
+    padding-inline: 8px;   /* was 15px */
   }
 
   .welcome span {
     display: block;
-    white-space: nowrap;   /* default: single line */
+    white-space: nowrap;
     letter-spacing: 0.05em;
   }
 
-  /* SAFETY VALVE */
   .welcome-green {
-    white-space: normal;  /* allow wrap ONLY if needed */
     letter-spacing: 0.02em;
   }
 }
+
 
 /* Extra safety for very small screens (under 330px) */
 @media (max-width: 330px) {
