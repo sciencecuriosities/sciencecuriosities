@@ -264,7 +264,7 @@ footer {
 
   /* Banner: slightly shorter, less cropping */
   .site-header {
-    aspect-ratio: 7 / 5;
+    aspect-ratio: 8 / 5;
     background-position: center top;
   }
 
@@ -285,13 +285,16 @@ footer {
   }
 
   .ranges {
-    margin-top: 20px;
+    margin-top: 14px;
   }
 
   /* 2 × 2 icon grid */
   .range-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
+}
+main {
+  padding-top: 6px;
 }
 
