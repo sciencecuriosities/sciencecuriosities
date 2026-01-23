@@ -23,18 +23,31 @@ body {
 .site-header {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 5;
+  
+  /* 16/4 makes the banner shorter than the original 16/5 image */
+  aspect-ratio: 16 / 4; 
+  
   background-image: url("../images/banner-faded.png");
-  background-size: cover;
-  background-position: center;
+  
+  /* 100% width, auto height ensures you see the full width 
+     of the collage without it zooming in. */
+  background-size: 100% auto; 
+  
+  background-position: center top;
+  background-repeat: no-repeat;
+  
+  /* Match the background of your collage to avoid white gaps */
+  background-color: #fef4f2; 
+  
   overflow: visible;
   z-index: 1;
-   background-position: center center; /* Keeps the heart of the collage centered */
-  background-repeat: no-repeat;
 }
+
 @media (min-width: 900px) {
   .site-header {
-    max-height: 55vh;
+    /* Lowering this from 55vh to 35vh keeps the banner 
+       from taking up half the screen on desktop */
+    max-height: 35vh; 
   }
 }
 
