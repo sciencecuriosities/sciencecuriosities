@@ -37,7 +37,7 @@ body {
     aspect-ratio: 16 / 5; 
     /* This ensures the full width is visible without cropping sides */
     background-size: 100% 100%; 
-    max-height: 48vh;
+    max-height: 50vh;
   }
 }
 
