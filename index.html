@@ -20,8 +20,6 @@
 </button>
 
 <nav class="site-nav" id="site-nav">
-  <a href="#">Home</a>
-  <nav class="site-nav">
   <a href="/">Home</a>
 
   <div class="nav-item has-submenu">
@@ -39,9 +37,6 @@
 
   <a href="/about.html">About</a>
   <a href="/contact.html">Contact</a>
-  </nav>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
 </nav>
 
     <div class="title-pill">
@@ -108,54 +103,43 @@
     <p>Contact: info@sciencecuriosities.co.uk</p>
   </footer>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.querySelector('.menu-toggle');
-    const nav = document.getElementById('site-nav');
-    const icon = menuButton.querySelector('.icon');
-    const menuLinks = nav.querySelectorAll('a');
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('site-nav');
+  const icon = menuButton.querySelector('.icon');
 
-    function closeMenu() {
-      nav.classList.remove('open');
-      icon.textContent = '☰';
-    }
+  function closeMenu() {
+    nav.classList.remove('open');
+    icon.textContent = '☰';
+  }
 
-    // Toggle menu on button click
-    menuButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = nav.classList.toggle('open');
-      icon.textContent = isOpen ? '✕' : '☰';
-    });
-
-    // Close menu when clicking a link
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    // ✅ NEW: Close menu with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('open')) {
-        closeMenu();
-      }
-    });
+  menuButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle('open');
+    icon.textContent = isOpen ? '✕' : '☰';
   });
-  <script>
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+});
+</script>
+
+<script>
 document.querySelectorAll('.submenu-toggle').forEach(button => {
   button.addEventListener('click', e => {
+    e.stopPropagation(); // IMPORTANT
     const parent = button.closest('.has-submenu');
     const expanded = parent.classList.toggle('open');
     button.setAttribute('aria-expanded', expanded);
   });
 });
-</script>
 </script>
 
 
