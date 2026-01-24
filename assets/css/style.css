@@ -271,6 +271,105 @@ text-align: center;
   background-color: rgba(11, 60, 140, 0.08); /* soft blue tint */
   color: #0b3c8c;
 }
+/* =========================
+   SUBMENU (RANGES)
+   ========================= */
+
+.nav-item {
+  position: relative;
+  width: 100%;
+  max-width: 40ch;
+}
+
+.submenu-toggle {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  text-align: center;
+
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: clamp(16px, 3vw, 22px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  border-radius: 12px;
+}
+
+.submenu-toggle:hover,
+.submenu-toggle:focus-visible {
+  background-color: rgba(11, 60, 140, 0.08);
+  color: #0b3c8c;
+}
+
+/* Flyout panel */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 12px;
+
+  background: rgba(254, 244, 242, 0.98);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+
+  min-width: 220px;
+  padding: 10px 0;
+
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 20;
+}
+
+.submenu a {
+  padding: 12px 20px;
+  display: block;
+  text-align: left;
+  font-size: 15px;
+}
+
+/* Hover reveal (desktop) */
+@media (hover: hover) {
+  .has-submenu:hover .submenu {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+}
+/* =========================
+   MOBILE SUBMENU
+   ========================= */
+
+@media (hover: none) {
+  .submenu {
+    position: static;
+    margin: 8px 0 0;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .submenu a {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .has-submenu .submenu {
+    display: none;
+  }
+
+  .has-submenu.open .submenu {
+    display: block;
+  }
+   }
 .ranges {
   margin-top: 0px;
 }
