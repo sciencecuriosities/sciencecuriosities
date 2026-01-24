@@ -543,3 +543,34 @@ text-align: center;
 .title-pill h1 {
   max-width: 92vw;
 }
+.range-hero {
+  width: 100%;
+  overflow: hidden;
+  background: #fff; /* intentional white frame if needed */
+}
+.range-hero img {
+  width: 100%;
+  height: auto;          /* preserves full image */
+  display: block;
+
+  max-height: 75vh;      /* prevents it dominating small screens */
+  object-fit: contain;  /* ensures NO cropping */
+}
+
+.range-intro {
+  margin: 24px auto 0;
+  text-align: center;
+
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 2.4vw, 18px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #0b3c8c;
+}
+@media (max-width: 640px) {
+  .range-intro {
+    margin-top: 16px;
+  }
+}
