@@ -21,7 +21,25 @@
 
 <nav class="site-nav" id="site-nav">
   <a href="#">Home</a>
-  <a href="#">Ranges</a>
+  <nav class="site-nav">
+  <a href="/">Home</a>
+
+  <div class="nav-item has-submenu">
+    <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">
+      Ranges
+    </button>
+
+    <div class="submenu">
+      <a href="/ranges/frogs.html">Frogs</a>
+      <a href="/ranges/planets.html">Planets</a>
+      <a href="/ranges/potted-plants.html">Potted Plants</a>
+      <a href="/ranges/blue-plaque.html">Blue Plaque</a>
+    </div>
+  </div>
+
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  </nav>
   <a href="#">About</a>
   <a href="#">Contact</a>
 </nav>
