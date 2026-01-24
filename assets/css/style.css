@@ -116,7 +116,15 @@ body {
     margin-bottom: 8px;
   }
 }
+@media (hover: none) {
+  .has-submenu.open .submenu {
+    display: block;
 
+    /* 🔑 RESET DESKTOP HIDING */
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
 /* =========================
    PAGE CONTENT
    ========================= */
