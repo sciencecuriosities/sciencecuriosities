@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | Science Curiosities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- IMPORTANT: same CSS as homepage -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <button class="menu-toggle" aria-label="Open menu">
+    <span class="icon">☰</span>
+  </button>
+
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html">Home</a>
+
+    <div class="nav-item has-submenu">
+      <button class="submenu-toggle" aria-expanded="false">
+        Ranges
+      </button>
+
+      <div class="submenu">
+        <a href="frogs.html">Frogs</a>
+        <a href="planets.html">Planets</a>
+        <a href="potted-plants.html">Potted Plants</a>
+        <a href="blue-plaque.html">Blue Plaque</a>
+      </div>
+    </div>
+
+    <a href="https://sciencecuriosities.etsy.com" target="_blank" rel="noopener">
+      Etsy Shop
+    </a>
+
+    <a href="about.html">About</a>
+  </nav>
+
+  <div class="title-pill">
+    <h1>
+      <span class="science">About</span>
+    </h1>
+  </div>
+</header>
+
+<main>
+  <p class="placeholder">About coming soon.</p>
+</main>
+
+<footer>
+  <p>Contact: info@sciencecuriosities.co.uk</p>
+</footer>
+
+<!-- SAME MENU JS AS HOMEPAGE -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('site-nav');
+  const icon = menuButton.querySelector('.icon');
+
+  function closeMenu() {
+    nav.classList.remove('open');
+    icon.textContent = '☰';
+  }
+
+  menuButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle('open');
+    icon.textContent = isOpen ? '✕' : '☰';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+});
+
+document.querySelectorAll('.submenu-toggle').forEach(button => {
+  button.addEventListener('click', e => {
+    e.stopPropagation();
+    const parent = button.closest('.has-submenu');
+    const expanded = parent.classList.toggle('open');
+    button.setAttribute('aria-expanded', expanded);
+  });
+});
+</script>
+
+</body>
+</html>
