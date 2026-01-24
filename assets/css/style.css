@@ -556,6 +556,11 @@ text-align: center;
   max-height: 75vh;      /* prevents it dominating small screens */
   object-fit: contain;  /* ensures NO cropping */
 }
+/* Plant range only — image is taller */
+.range-hero--plants img {
+  max-height: 60vh;
+   margin-top: -8px;/* reduce vertical dominance */
+}
 
 .range-intro {
   margin: 24px auto 0;
