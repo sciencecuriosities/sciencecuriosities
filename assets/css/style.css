@@ -126,6 +126,26 @@ body {
   }
 }
 /* =========================
+   ETSY MENU LINK
+   ========================= */
+
+.nav-etsy {
+  margin-top: 8px;
+  font-size: 0.9em;
+  letter-spacing: 0.06em;
+
+  color: #0a8a6a; /* your green */
+  background: rgba(10, 138, 106, 0.08);
+
+  max-width: 34ch;
+}
+
+.nav-etsy:hover,
+.nav-etsy:focus-visible {
+  background: rgba(10, 138, 106, 0.15);
+  color: #0a8a6a;
+}
+/* =========================
    PAGE CONTENT
    ========================= */
 
