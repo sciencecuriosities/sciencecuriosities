@@ -107,7 +107,15 @@ body {
 .menu-toggle:hover {
   background-color: #f6e6e2; /* slightly darker than #fef4f2 */
 }
+@media (hover: none) {
+  .submenu a {
+    padding: 10px 0;
+  }
 
+  .has-submenu.open {
+    margin-bottom: 8px;
+  }
+}
 
 /* =========================
    PAGE CONTENT
