@@ -345,23 +345,21 @@ text-align: center;
 .submenu {
   position: absolute;
   top: 0;
-  left: 100%;
-  margin-left: 12px;
+  left: 100%;          /* still to the right */
+  margin-left: 0;      /* REMOVE the gap */
 
   background: rgba(254, 244, 242, 0.98);
   border-radius: 14px;
   box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 
   min-width: 220px;
-  padding: 10px 0;
+  padding: 10px 0 10px 12px; /* visual spacing instead */
 
   opacity: 0;
-  transform: translateX(-8px);
+  transform: translateX(0);
   pointer-events: none;
 
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  transition: opacity 0.25s ease;
   z-index: 20;
 }
 
@@ -374,12 +372,13 @@ text-align: center;
 
 /* Hover reveal (desktop) */
 @media (hover: hover) {
-  .has-submenu:hover .submenu {
+  .has-submenu:hover .submenu,
+  .submenu:hover {
     opacity: 1;
-    transform: translateX(0);
     pointer-events: auto;
   }
 }
+
 /* =========================
    MOBILE SUBMENU
    ========================= */
