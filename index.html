@@ -147,6 +147,15 @@
       }
     });
   });
+  <script>
+document.querySelectorAll('.submenu-toggle').forEach(button => {
+  button.addEventListener('click', e => {
+    const parent = button.closest('.has-submenu');
+    const expanded = parent.classList.toggle('open');
+    button.setAttribute('aria-expanded', expanded);
+  });
+});
+</script>
 </script>
 
 
