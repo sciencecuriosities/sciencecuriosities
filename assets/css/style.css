@@ -55,7 +55,9 @@ body {
 .banner--plant {
   background-image: url("../images/plant-banner-faded.jpg");
 }
-
+.banner--plaque {
+  background-image: url("../images/plaque-banner-faded.jpg");
+}
 
 /* =========================
    TITLE PILL
