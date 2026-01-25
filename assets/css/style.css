@@ -568,7 +568,7 @@ text-align: center;
   height: auto;          /* preserves full image */
   display: block;
 
-  max-height: 75vh;      /* prevents it dominating small screens */
+  max-height: 65vh;      /* prevents it dominating small screens */
   object-fit: contain;  /* ensures NO cropping */
 }
 /* Plant range only — image is taller */
