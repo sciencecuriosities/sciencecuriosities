@@ -40,6 +40,21 @@ body {
     max-height: 50vh;
   }
 }
+/* =========================
+   RANGE-SPECIFIC BANNERS
+   ========================= */
+
+.banner--frog {
+  background-image: url("../images/frog-faded-banner.jpg");
+}
+
+.banner--planet {
+  background-image: url("../images/planet-faded-banner.jpg");
+}
+
+.banner--plant {
+  background-image: url("../images/plant-faded-banner.jpg");
+}
 
 
 /* =========================
