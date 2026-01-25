@@ -45,15 +45,15 @@ body {
    ========================= */
 
 .banner--frog {
-  background-image: url("../images/frog-faded-banner.jpg");
+  background-image: url("../images/frog-banner-faded.jpg");
 }
 
 .banner--planet {
-  background-image: url("../images/planet-faded-banner.jpg");
+  background-image: url("../images/planet-banner-faded.jpg");
 }
 
 .banner--plant {
-  background-image: url("../images/plant-faded-banner.jpg");
+  background-image: url("../images/plant-banner-faded.jpg");
 }
 
 
