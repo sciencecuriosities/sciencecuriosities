@@ -566,7 +566,7 @@ text-align: center;
   background: #fff; /* intentional white frame if needed */
 }
 .range-hero img {
-  width: 100%;
+  width: 75%;
   height: auto;          /* preserves full image */
   display: block;
 
