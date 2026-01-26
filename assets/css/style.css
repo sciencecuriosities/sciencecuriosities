@@ -568,8 +568,9 @@ text-align: center;
 .range-hero img {
   width: 75%;
   height: auto;          /* preserves full image */
+  margin: auto;
   display: block;
-  position: center
+  
 
   max-height: 40vh;      /* prevents it dominating small screens */
   object-fit: contain;  /* ensures NO cropping */
