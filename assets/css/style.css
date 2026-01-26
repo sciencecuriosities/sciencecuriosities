@@ -581,7 +581,21 @@ text-align: center;
   max-height: 40vh;
    margin-top: -16px;/* reduce vertical dominance */
 }
-
+@media (max-width: 640px) {
+   .range-hero img {
+  width: 100%;
+  height: auto;          /* preserves full image */
+  display: block;
+ max-height: 55vh;      /* prevents it dominating small screens */
+  object-fit: contain;  /* ensures NO cropping */
+}
+/* Plant range only — image is taller */
+.range-hero--plants img {
+  max-height: 40vh;
+   margin-top: -16px;/* reduce vertical dominance */
+}
+}
+      
 .range-intro {
   margin: 24px auto 0;
   text-align: center;
