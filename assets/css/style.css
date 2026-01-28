@@ -689,6 +689,10 @@ text-align: center;
     max-width: 90%;
   }
 }
+   /* Add vertical spacing before the cross design */
+.frog-tile.large {
+  margin-top: 18px;
+     }
 
   /* Second row with two centred */
   .frog-grid .frog-tile:nth-child(4),
