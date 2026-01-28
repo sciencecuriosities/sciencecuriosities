@@ -101,7 +101,10 @@
 <footer>
   <p>Contact: info@sciencecuriosities.co.uk</p>
 </footer>
-
+<div class="frog-modal" id="frogModal" aria-hidden="true">
+  <button class="modal-close" aria-label="Close">✕</button>
+  <img src="" alt="" id="frogModalImage">
+</div>
 <!-- SAME MENU JS AS HOMEPAGE -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -140,10 +143,31 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
   });
 });
 </script>
-<div class="frog-modal" id="frogModal" aria-hidden="true">
-  <button class="modal-close" aria-label="Close">✕</button>
-  <img src="" alt="" id="frogModalImage">
-</div>
+  <script>
+const modal = document.getElementById('frogModal');
+const modalImage = document.getElementById('frogModalImage');
+const closeBtn = modal.querySelector('.modal-close');
+
+document.querySelectorAll('.frog-tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    const image = tile.dataset.image;
+    modalImage.src = `assets/images/ranges/frogs/${image}`;
+    modal.classList.add('open');
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('open');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.classList.remove('open');
+  }
+});
+</script>
+
+
 
 </body>
 </html>
