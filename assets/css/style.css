@@ -617,3 +617,81 @@ text-align: center;
     margin-top: 16px;
   }
 }
+/* Instruction text */
+.range-instruction {
+  text-align: center;
+  font-family: "Montserrat", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 18px 0 22px;
+}
+
+/* Grid container */
+.frog-grid {
+  display: grid;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* Mobile layout */
+@media (max-width: 640px) {
+  .frog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Centre the 5th square */
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 48%;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 641px) {
+  .frog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Second row with two centred */
+  .frog-grid .frog-tile:nth-child(4),
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+/* Tiles */
+.frog-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.frog-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.frog-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+/* Special sizes */
+.frog-tile.wide {
+  grid-column: span 2;
+}
+
+.frog-tile.large img {
+  aspect-ratio: 1 / 1;
+  transform: scale(1.15);
+}
