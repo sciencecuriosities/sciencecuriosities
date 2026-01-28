@@ -657,6 +657,38 @@ text-align: center;
     max-width: 720px;
     margin: 0 auto;
   }
+@media (min-width: 641px) {
+
+  /* Keep 3-column grid */
+  .frog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Centre the 2-icon row (icons 4 & 5) */
+  .frog-grid .frog-tile:nth-child(4) {
+    grid-column: 2;
+  }
+
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: 3;
+  }
+
+  /* Wide (multi) icon: its own centred row */
+  .frog-grid .frog-tile.wide {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 80%;
+  }
+
+  /* Large (cross) icon: its own centred row */
+  .frog-grid .frog-tile.large {
+    grid-column: 2;
+    justify-self: center;
+    max-width: 90%;
+  }
+}
 
   /* Second row with two centred */
   .frog-grid .frog-tile:nth-child(4),
