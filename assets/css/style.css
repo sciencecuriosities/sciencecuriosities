@@ -695,6 +695,12 @@ text-align: center;
   aspect-ratio: 1 / 1;
   transform: scale(1.15);
 }
+/* Wide (multi frog) tile */
+.frog-tile.wide img {
+  aspect-ratio: 5 / 1;   /* matches 1920 × 384 */
+  object-fit: contain;  /* no cropping, no squashing */
+}
+
 .frog-modal {
   position: fixed;
   inset: 0;
