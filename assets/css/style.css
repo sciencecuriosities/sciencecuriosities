@@ -649,7 +649,14 @@ text-align: center;
     width: 48%;
   }
 }
-
+@media (max-width: 640px) {
+  .frog-grid .frog-tile.large {
+    grid-column: 1 / -1;   /* full row */
+    justify-self: center; /* centred */
+    margin-top: 22px;     /* clearer separation */
+    width: 65%;
+  }
+}
 /* Desktop layout */
 @media (min-width: 641px) {
   .frog-grid {
@@ -693,12 +700,6 @@ text-align: center;
 .frog-tile.large {
   margin-top: 18px;
      }
-
-  /* Second row with two centred */
-  .frog-grid .frog-tile:nth-child(4),
-  .frog-grid .frog-tile:nth-child(5) {
-    grid-column: span 1;
-  }
 }
 
 /* Tiles */
