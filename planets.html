@@ -83,10 +83,7 @@
   <footer>
   <p>Contact: info@sciencecuriosities.co.uk</p>
 </footer>
-<div class="planet-modal" id="planetModal" aria-hidden="true">
-  <button class="modal-close" aria-label="Close">✕</button>
-  <img src="" alt="" id="planetModalImage">
-</div>
+
 <!-- SAME MENU JS AS HOMEPAGE -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -126,8 +123,8 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
 });
 </script>
   <script>
-const modal = document.getElementById('planetModal');
-const modalImage = document.getElementById('planetModalImage');
+const modal = document.getElementById('frogModal');
+const modalImage = document.getElementById('frogModalImage');
 const closeBtn = modal.querySelector('.modal-close');
 
 document.querySelectorAll('.planet-tile').forEach(tile => {
