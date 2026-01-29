@@ -125,30 +125,33 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
     button.setAttribute('aria-expanded', expanded);
   });
 });
-</script>
-  <script>
-const modal = document.getElementById('frogModal');
-const modalImage = document.getElementById('frogModalImage');
+<script>
+const modal = document.getElementById('designModal');
+const modalImage = document.getElementById('designModalImage');
 const closeBtn = modal.querySelector('.modal-close');
 
 document.querySelectorAll('.planet-tile').forEach(tile => {
   tile.addEventListener('click', () => {
-    const image = tile.dataset.image;
-    modalImage.src = `assets/images/ranges/planets/${image}`;
+    const key = tile.dataset.modal; // wide | row | tall
+    modalImage.src = `assets/images/ranges/planets/${key}-planet-mockup-square.jpg`;
     modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
   });
 });
 
 closeBtn.addEventListener('click', () => {
   modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
 });
 
 modal.addEventListener('click', e => {
   if (e.target === modal) {
     modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
   }
 });
 </script>
+
 
 </body>
 </html>
