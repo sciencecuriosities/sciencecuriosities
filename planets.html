@@ -83,10 +83,11 @@
   <footer>
   <p>Contact: info@sciencecuriosities.co.uk</p>
 </footer>
-<div class="frog-modal" id="frogModal">
+<div class="design-modal" id="designModal" aria-hidden="true">
   <button class="modal-close">✕</button>
-  <img src="" alt="" id="frogModalImage">
+  <img src="" alt="" id="designModalImage">
 </div>
+
 
 <!-- SAME MENU JS AS HOMEPAGE -->
 <script>
@@ -125,6 +126,7 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
     button.setAttribute('aria-expanded', expanded);
   });
 });
+<script>
 <script>
 const modal = document.getElementById('designModal');
 const modalImage = document.getElementById('designModalImage');
