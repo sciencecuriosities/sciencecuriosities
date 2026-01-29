@@ -83,7 +83,10 @@
   <footer>
   <p>Contact: info@sciencecuriosities.co.uk</p>
 </footer>
-
+<div class="planet-modal" id="planetModal" aria-hidden="true">
+  <button class="modal-close" aria-label="Close">✕</button>
+  <img src="" alt="" id="planetModalImage">
+</div>
 <!-- SAME MENU JS AS HOMEPAGE -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -120,6 +123,29 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
     const expanded = parent.classList.toggle('open');
     button.setAttribute('aria-expanded', expanded);
   });
+});
+</script>
+  <script>
+const modal = document.getElementById('planetModal');
+const modalImage = document.getElementById('planetModalImage');
+const closeBtn = modal.querySelector('.modal-close');
+
+document.querySelectorAll('.planet-tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    const image = tile.dataset.image;
+    modalImage.src = `assets/images/ranges/planets/${image}`;
+    modal.classList.add('open');
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('open');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.classList.remove('open');
+  }
 });
 </script>
 
