@@ -737,7 +737,7 @@ text-align: center;
   aspect-ratio: 5 / 1;   /* matches 1920 × 384 */
   object-fit: contain;  /* no cropping, no squashing */
 }
-
+.design-modal,
 .frog-modal {
   position: fixed;
   inset: 0;
@@ -747,11 +747,11 @@ text-align: center;
   justify-content: center;
   z-index: 100;
 }
-
+.design-modal.open,
 .frog-modal.open {
   display: flex;
 }
-
+.design-modal img,
 .frog-modal img {
   width: 92%;
   max-width: 720px;
@@ -777,6 +777,7 @@ text-align: center;
 
 /* Desktop tweak */
 @media (min-width: 900px) {
+   .design-modal img,
   .frog-modal img {
     max-height: 90vh;
   }
@@ -842,6 +843,7 @@ text-align: center;
     grid-row: 2;
   }
 }
+.design-modal,
 .frog-modal img {
   width: 92%;
   max-width: 720px;
