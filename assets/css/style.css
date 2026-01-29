@@ -781,3 +781,70 @@ text-align: center;
     max-height: 90vh;
   }
 }
+.planet-grid {
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+.planet-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.planet-tile img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+@media (max-width: 640px) {
+  .planet-tile.wide,
+  .planet-tile.row {
+    width: 100%;
+  }
+
+  .planet-tile.tall {
+    width: 70%;
+    justify-self: center;
+  }
+}
+@media (min-width: 900px) {
+  .planet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
+    align-items: center;
+  }
+
+  /* Tall spans two rows */
+  .planet-tile.tall {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 85%;
+    justify-self: center;
+  }
+
+  /* Wide & row stacked beside */
+  .planet-tile.wide {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .planet-tile.row {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+}
+.frog-modal img {
+  width: 92%;
+  max-width: 720px;
+  max-height: 85vh;
+  object-fit: contain;
+}
