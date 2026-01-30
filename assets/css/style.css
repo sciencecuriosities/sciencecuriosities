@@ -907,3 +907,29 @@ text-align: center;
     object-fit: contain;
   }
 }
+.plaque-grid {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.plaque-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.plaque-tile img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plaque-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
