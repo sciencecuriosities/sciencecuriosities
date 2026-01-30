@@ -126,32 +126,6 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
   });
 });
 </script>
-<script>
-const modal = document.getElementById('designModal');
-const modalImage = document.getElementById('designModalImage');
-const closeBtn = modal.querySelector('.modal-close');
-
-document.querySelectorAll('.planet-tile').forEach(tile => {
-  tile.addEventListener('click', () => {
-    const key = tile.dataset.modal; // spider | cheese | sun | orchid | mix
-    modalImage.src = `assets/images/ranges/plants/${key}-plant-mockup-square.jpg`;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-  });
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-});
-
-modal.addEventListener('click', e => {
-  if (e.target === modal) {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-});
-</script>
 
 </body>
 </html>
