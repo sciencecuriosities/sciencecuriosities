@@ -913,10 +913,7 @@ text-align: center;
   margin: 0 auto;
   max-width: 320px;
 }
-.blue-plaque-page .welcome-blue {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  line-height: 1.4;
-}
+
 
 .plaque-tile {
   background: none;
@@ -937,3 +934,7 @@ text-align: center;
   box-shadow: 0 14px 30px rgba(0,0,0,0.18);
 }
 
+.blue-plaque-page .welcome-blue {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.4;
+   }
