@@ -89,6 +89,12 @@
 <footer>
   <p>Contact: info@sciencecuriosities.co.uk</p>
 </footer>
+  
+  <div class="design-modal" id="designModal" aria-hidden="true">
+  <button class="modal-close">✕</button>
+  <img src="" alt="" id="designModalImage">
+</div>
+
 
 <!-- SAME MENU JS AS HOMEPAGE -->
 <script>
@@ -126,6 +132,33 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
     const expanded = parent.classList.toggle('open');
     button.setAttribute('aria-expanded', expanded);
   });
+});
+</script>
+<script>
+const modal = document.getElementById('designModal');
+const modalImage = document.getElementById('designModalImage');
+const closeBtn = modal.querySelector('.modal-close');
+
+document.querySelectorAll('.plant-tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    const key = tile.dataset.modal;
+    modalImage.src =
+      `assets/images/ranges/plants/${key}-plant-mockup-square.jpg`;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
 });
 </script>
 
