@@ -703,11 +703,6 @@ text-align: center;
   }
 }
 
-   /* Add vertical spacing before the cross design */
-.frog-tile.large {
-  margin-top: 18px;
-     }
-}
 
 /* Tiles */
 .frog-tile {
@@ -716,7 +711,9 @@ text-align: center;
   padding: 0;
   cursor: pointer;
 }
-
+.frog-tile:focus {
+  outline: none;
+}
 .frog-tile img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -724,9 +721,7 @@ text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.14);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.frog-tile:focus {
-  outline: none;
-}
+
 .frog-tile:hover img {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(0,0,0,0.18);
