@@ -367,7 +367,8 @@ text-align: center;
 
 .submenu-toggle {
   display: block;
-  width: 100%;
+  position: relative;
+  z-index: 5; width: 100%;
   padding: 14px 20px;
   text-align: center;
   font-family: "Montserrat", system-ui, sans-serif;
@@ -376,9 +377,9 @@ text-align: center;
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 12px;
-  background: transparent; /* Essential for some Samsung Chrome versions */
+  background: rgba(0,0,0,0); /* Essential for some Samsung Chrome versions */
   border: none;
-  min-height: 48px; /* Standard accessible touch target size */
+  min-height: 50px; /* Standard accessible touch target size */
 }
 
 .submenu-toggle:hover,
@@ -451,12 +452,14 @@ text-align: center;
     background: transparent;
     padding: 0;
     opacity: 1;         /* Reset opacity so display:block handles it */
-    pointer-events: auto;
+    pointer-events: none;
   }
 
   /* 2. Show it ONLY when the parent is open */
   .has-submenu.open .submenu {
     display: block !important;
+     pointer-events: auto;
+    visibility: visible;
   }
 
   /* 3. Center the links for mobile */
