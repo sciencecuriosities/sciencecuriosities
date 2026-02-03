@@ -140,22 +140,6 @@ body {
   }
 }
 
-/* 2. MOBILE ONLY: Control via the .open class added by JS */
-@media (hover: none) {
-  /* Ensure hover doesn't accidentally trigger anything */
-  .has-submenu:hover .submenu {
-    display: none; 
-  }
-
-  /* Show submenu ONLY when JS adds the .open class */
-  .has-submenu.open .submenu {
-    display: block;
-    position: static; /* Often helps on mobile to push content down */
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 /* =========================
    ETSY MENU LINK
    ========================= */
@@ -430,13 +414,6 @@ text-align: center;
     padding: 10px 0;
   }
 
-  .has-submenu .submenu {
-    display: none;
-  }
-
-  .has-submenu.open .submenu {
-    display: block;
-  }
    }
 .ranges {
   margin-top: 0px;
