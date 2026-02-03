@@ -114,29 +114,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
   const handleToggle = (e) => {
-    e.preventDefault();
+    // This is the critical line for Samsung Internet
+    if (e.cancelable) e.preventDefault(); 
     e.stopPropagation();
     
-    // If it's the main menu button
-    if (e.currentTarget === menuButton) {
+    if (e.currentTarget.classList.contains('menu-toggle')) {
       const isOpen = nav.classList.toggle('open');
       menuButton.querySelector('.icon').textContent = isOpen ? '✕' : '☰';
-    } 
-    // If it's a submenu toggle (Ranges)
-    else {
+    } else {
       const parent = e.currentTarget.closest('.has-submenu');
       parent.classList.toggle('open');
     }
   };
 
-  // Main Button
+  // Main Burger Button
   menuButton.addEventListener('click', handleToggle);
+  // { passive: false } is the secret sauce for Samsung
   menuButton.addEventListener('touchstart', handleToggle, { passive: false });
 
-  // Ranges Button
+  // Ranges Submenu Toggle
   submenuToggles.forEach(btn => {
     btn.addEventListener('click', handleToggle);
     btn.addEventListener('touchstart', handleToggle, { passive: false });
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+      nav.classList.remove('open');
+      document.querySelectorAll('.has-submenu').forEach(p => p.classList.remove('open'));
+    }
   });
 });
 </script>
