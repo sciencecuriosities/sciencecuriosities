@@ -107,23 +107,15 @@
   <footer>
     <p>Contact: info@sciencecuriosities.co.uk</p>
   </footer>
-<script>
 document.addEventListener('DOMContentLoaded', () => {
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
-  
-  // Use a generic handler to avoid double-firing
-  let lastEventTime = 0;
 
-  function handleInteraction(e, type) {
-    const now = Date.now();
-    // Prevent click and touch from firing within 500ms of each other
-    if (now - lastEventTime < 500) return;
-    lastEventTime = now;
-
+  // One simple function for everything
+  function toggleMenu(e) {
+    // Only prevent default if it's an actual link or button to stop jumps
     e.stopPropagation();
-    
-    // Toggle Logic
+
     if (e.currentTarget === menuButton) {
       const isOpen = nav.classList.toggle('open');
       menuButton.querySelector('.icon').textContent = isOpen ? '✕' : '☰';
@@ -133,27 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Attach to the main button
-  ['click', 'touchstart'].forEach(evt => {
-    menuButton.addEventListener(evt, (e) => handleInteraction(e, 'main'), { passive: false });
-  });
+  // Use ONLY click. 
+  // We will handle the speed in CSS.
+  menuButton.addEventListener('click', toggleMenu);
 
-  // Attach to all submenu toggles (Ranges)
   document.querySelectorAll('.submenu-toggle').forEach(btn => {
-    ['click', 'touchstart'].forEach(evt => {
-      btn.addEventListener(evt, (e) => handleInteraction(e, 'sub'), { passive: false });
-    });
+    btn.addEventListener('click', toggleMenu);
   });
 
-  // Outside click logic remains the same
+  // Close when clicking outside
   document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+    if (nav && !nav.contains(e.target) && !menuButton.contains(e.target)) {
       nav.classList.remove('open');
       document.querySelectorAll('.has-submenu').forEach(p => p.classList.remove('open'));
+      menuButton.querySelector('.icon').textContent = '☰';
     }
   });
 });
-</script>
 
 <script>
 document.querySelectorAll('.submenu-toggle').forEach(button => {
