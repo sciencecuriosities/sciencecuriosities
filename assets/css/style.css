@@ -368,7 +368,7 @@ text-align: center;
 .submenu-toggle {
   display: block;
   position: relative;
-  z-index: 5; width: 100%;
+  z-index: 10; width: 100%;
   padding: 14px 20px;
   text-align: center;
   font-family: "Montserrat", system-ui, sans-serif;
@@ -458,7 +458,6 @@ text-align: center;
   /* 2. Show it ONLY when the parent is open */
   .has-submenu.open .submenu {
     display: block !important;
-     pointer-events: auto;
     visibility: visible;
   }
 
