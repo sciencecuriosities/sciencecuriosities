@@ -133,19 +133,26 @@ body {
     margin-bottom: 8px;
   }
 }
-@media (hover: none) {
-  .has-submenu.open .submenu {
+/* 1. DESKTOP ONLY: Normal hover behavior */
+@media (hover: hover) {
+  .has-submenu:hover .submenu {
     display: block;
-     
-
-    /* 🔑 RESET DESKTOP HIDING */
-    opacity: 1;
-    pointer-events: auto;
   }
 }
+
+/* 2. MOBILE ONLY: Control via the .open class added by JS */
 @media (hover: none) {
+  /* Ensure hover doesn't accidentally trigger anything */
   .has-submenu:hover .submenu {
-    display: none !important;
+    display: none; 
+  }
+
+  /* Show submenu ONLY when JS adds the .open class */
+  .has-submenu.open .submenu {
+    display: block;
+    position: static; /* Often helps on mobile to push content down */
+    visibility: visible;
+    opacity: 1;
   }
 }
 
