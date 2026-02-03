@@ -118,11 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.textContent = '☰';
   }
 
-  menuButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = nav.classList.toggle('open');
-    icon.textContent = isOpen ? '✕' : '☰';
+  // Function to handle the Main Hamburger
+const toggleMainMenu = (e) => {
+  e.preventDefault(); // Prevents "ghost clicks" on mobile
+  e.stopPropagation();
+  const isOpen = nav.classList.toggle('open');
+  icon.textContent = isOpen ? '✕' : '☰';
+};
+
+// Apply to main button
+menuButton.addEventListener('click', toggleMainMenu);
+menuButton.addEventListener('touchstart', toggleMainMenu, { passive: false });
+
+// NEW: Handle the "Ranges" Submenu Button
+document.querySelectorAll('.submenu-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (window.matchMedia("(hover: none)").matches) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parent = btn.closest('.has-submenu');
+      parent.classList.toggle('open');
+    }
   });
+});
 
   document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
