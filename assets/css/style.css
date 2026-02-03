@@ -133,6 +133,12 @@ body {
     margin-bottom: 8px;
   }
 }
+/* Tell the browser not to wait for scroll gestures on these buttons */
+.menu-toggle, 
+.submenu-toggle {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent; /* Removes the grey box on tap */
+}
 /* 1. DESKTOP ONLY: Normal hover behavior */
 @media (hover: hover) {
   .has-submenu:hover .submenu {
