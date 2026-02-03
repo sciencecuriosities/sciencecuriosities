@@ -170,7 +170,9 @@ body {
   display: none;
   background: rgba(254, 244, 242, 0.98);
 }
-
+.submenu {
+  pointer-events: auto;
+}
 /* Desktop Hover */
 @media (min-width: 901px) {
   .has-submenu:hover .submenu {
