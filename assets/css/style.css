@@ -945,3 +945,7 @@ text-align: center;
 .blue-plaque-page .welcome span {
   white-space: normal;
 }
+footer,
+.site-footer {
+  text-align: center;
+}
