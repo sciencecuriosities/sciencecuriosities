@@ -696,7 +696,7 @@ text-align: center;
 
   /* Large (cross) icon: its own centred row */
   .frog-grid .frog-tile.large {
-    grid-column: 2;
+    grid-column: 3;
     justify-self: center;
     max-width: 90%;
     margin-top: 18px; /* same gap as other rows */
