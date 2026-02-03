@@ -137,6 +137,7 @@ body {
 .menu-toggle, 
 .submenu-toggle {
   touch-action: manipulation;
+   cursor: pointer;
   -webkit-tap-highlight-color: transparent; /* Removes the grey box on tap */
 }
 /* 1. DESKTOP ONLY: Normal hover behavior */
@@ -316,6 +317,9 @@ text-align: center;
 
   z-index: 5;
 }
+.site-nav {
+  touch-action: pan-y; /* Allows scrolling but captures taps quickly */
+}
 /* Update your existing .site-nav.open rule */
 .site-nav.open {
   max-height: 70vh; /* responsive, safe on all devices */
@@ -362,21 +366,19 @@ text-align: center;
 }
 
 .submenu-toggle {
-  all: unset;
   display: block;
   width: 100%;
-  box-sizing: border-box;
-
   padding: 14px 20px;
   text-align: center;
-
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(16px, 3vw, 22px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   cursor: pointer;
   border-radius: 12px;
+  background: transparent; /* Essential for some Samsung Chrome versions */
+  border: none;
+  min-height: 48px; /* Standard accessible touch target size */
 }
 
 .submenu-toggle:hover,
