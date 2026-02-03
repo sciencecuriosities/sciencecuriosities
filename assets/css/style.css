@@ -664,24 +664,28 @@ text-align: center;
     grid-template-columns: repeat(3, 1fr);
     max-width: 720px;
     margin: 0 auto;
-    justify-items: center; /* KEY: centres items within columns */
+    gap: 14px;
   }
 
-  /* First row: normal 3 icons */
+  /* Row 1: normal 3 icons */
   .frog-grid .frog-tile:nth-child(1),
   .frog-grid .frog-tile:nth-child(2),
   .frog-grid .frog-tile:nth-child(3) {
     grid-column: span 1;
   }
 
-  /* SECOND ROW: place icons 4 & 5 in the MIDDLE TWO COLUMNS */
-  .frog-grid .frog-tile:nth-child(4) {
-    grid-column: 2; /* middle */
+  /* Row 2: centre the TWO icons visually */
+  .frog-grid {
+    grid-template-areas:
+      "a b c"
+      "d e .";
   }
 
-  .frog-grid .frog-tile:nth-child(5) {
-    grid-column: 3; /* right of middle */
-  }
+  .frog-grid .frog-tile:nth-child(1) { grid-area: a; }
+  .frog-grid .frog-tile:nth-child(2) { grid-area: b; }
+  .frog-grid .frog-tile:nth-child(3) { grid-area: c; }
+  .frog-grid .frog-tile:nth-child(4) { grid-area: d; }
+  .frog-grid .frog-tile:nth-child(5) { grid-area: e; }
 
   /* Wide (multi) icon: its own centred row */
   .frog-grid .frog-tile.wide {
@@ -692,28 +696,13 @@ text-align: center;
 
   /* Large (cross) icon: its own centred row */
   .frog-grid .frog-tile.large {
-    grid-column: 1 / -1; /* full width row */
+    grid-column: 1 / -1;
     justify-self: center;
     max-width: 90%;
     margin-top: 18px; /* same gap as other rows */
   }
 }
 
-
-  /* Wide (multi) icon: its own centred row */
-  .frog-grid .frog-tile.wide {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 80%;
-  }
-
-  /* Large (cross) icon: its own centred row */
-  .frog-grid .frog-tile.large {
-    grid-column: 2;
-    justify-self: center;
-    max-width: 90%;
-  }
-}
    /* Add vertical spacing before the cross design */
 .frog-tile.large {
   margin-top: 18px;
@@ -735,7 +724,9 @@ text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.14);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.frog-tile:focus {
+  outline: none;
+}
 .frog-tile:hover img {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(0,0,0,0.18);
