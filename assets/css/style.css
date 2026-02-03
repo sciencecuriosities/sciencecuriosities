@@ -145,7 +145,30 @@ body {
     display: block;
   }
 }
+.submenu-toggle {
+  /* Keep your unset, but re-add these for Samsung's touch engine */
+  cursor: pointer;
+  touch-action: manipulation;
+  display: block;
+  width: 100%;
+  
+  /* IMPORTANT: Give it a background, even if transparent, 
+     to ensure the "hit area" is registered on Galaxy devices */
+  background-color: rgba(0,0,0,0); 
+  
+  /* Ensure it has a minimum height for thumbs */
+  min-height: 44px; 
+}
 
+/* Force the submenu to be visible when the class is present */
+@media (hover: none) {
+  .has-submenu.open .submenu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 1000px !important; /* Ensure it's not being clipped */
+  }
+}
 /* =========================
    ETSY MENU LINK
    ========================= */
