@@ -111,34 +111,41 @@
 document.addEventListener('DOMContentLoaded', () => {
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
-  const submenuToggles = document.querySelectorAll('.submenu-toggle');
+  
+  // Use a generic handler to avoid double-firing
+  let lastEventTime = 0;
 
-  const handleToggle = (e) => {
-    // This is the critical line for Samsung Internet
-    if (e.cancelable) e.preventDefault(); 
+  function handleInteraction(e, type) {
+    const now = Date.now();
+    // Prevent click and touch from firing within 500ms of each other
+    if (now - lastEventTime < 500) return;
+    lastEventTime = now;
+
     e.stopPropagation();
     
-    if (e.currentTarget.classList.contains('menu-toggle')) {
+    // Toggle Logic
+    if (e.currentTarget === menuButton) {
       const isOpen = nav.classList.toggle('open');
       menuButton.querySelector('.icon').textContent = isOpen ? '✕' : '☰';
     } else {
       const parent = e.currentTarget.closest('.has-submenu');
-      parent.classList.toggle('open');
+      if (parent) parent.classList.toggle('open');
     }
-  };
+  }
 
-  // Main Burger Button
-  menuButton.addEventListener('click', handleToggle);
-  // { passive: false } is the secret sauce for Samsung
-  menuButton.addEventListener('touchstart', handleToggle, { passive: false });
-
-  // Ranges Submenu Toggle
-  submenuToggles.forEach(btn => {
-    btn.addEventListener('click', handleToggle);
-    btn.addEventListener('touchstart', handleToggle, { passive: false });
+  // Attach to the main button
+  ['click', 'touchstart'].forEach(evt => {
+    menuButton.addEventListener(evt, (e) => handleInteraction(e, 'main'), { passive: false });
   });
 
-  // Close when clicking outside
+  // Attach to all submenu toggles (Ranges)
+  document.querySelectorAll('.submenu-toggle').forEach(btn => {
+    ['click', 'touchstart'].forEach(evt => {
+      btn.addEventListener(evt, (e) => handleInteraction(e, 'sub'), { passive: false });
+    });
+  });
+
+  // Outside click logic remains the same
   document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
       nav.classList.remove('open');
