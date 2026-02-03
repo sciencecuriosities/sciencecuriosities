@@ -19,7 +19,6 @@ body {
 /* =========================
    HEADER / BANNER
    ========================= */
-
 .site-header {
   position: relative;
   width: 100%;
@@ -42,27 +41,14 @@ body {
 /* =========================
    RANGE-SPECIFIC BANNERS
    ========================= */
-
-.banner--frog {
-  background-image: url("../images/frog-banner-faded.jpg");
-}
-
-.banner--planet {
-  background-image: url("../images/planet-banner-faded.jpg");
-}
-
-.banner--plant {
-  background-image: url("../images/plant-banner-faded.jpg");
-}
-
-.banner--plaque {
-  background-image: url("../images/plaque-banner-faded.jpg");
-}
+.banner--frog { background-image: url("../images/frog-banner-faded.jpg"); }
+.banner--planet { background-image: url("../images/planet-banner-faded.jpg"); }
+.banner--plant { background-image: url("../images/plant-banner-faded.jpg"); }
+.banner--plaque { background-image: url("../images/plaque-banner-faded.jpg"); }
 
 /* =========================
    TITLE PILL
    ========================= */
-
 .title-pill {
   position: absolute;
   inset: 0;
@@ -79,30 +65,21 @@ body {
   border-radius: 999px;
   display: flex;
   gap: 0.35em;
-
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-
   font-size: clamp(18px, 3.5vw, 56px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.18);
   white-space: nowrap;
-  max-width: 92vw;
 }
 
-.title-pill .science {
-  color: #0b3c8c;
-}
-
-.title-pill .curiosities {
-  color: #0a8a6a;
-}
+.title-pill .science { color: #0b3c8c; }
+.title-pill .curiosities { color: #0a8a6a; }
 
 /* =========================
    BURGER BUTTON
    ========================= */
-
 .menu-toggle {
   position: absolute;
   top: 0.75%;
@@ -115,7 +92,6 @@ body {
   font-size: 26px;
   cursor: pointer;
   z-index: 10;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,422 +102,156 @@ body {
 }
 
 /* =========================
-   NAVIGATION PANEL (FIXED)
+   NAVIGATION PANEL
    ========================= */
-
 .site-nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background: rgba(254, 244, 242, 0.98);
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
 
-  /* CLOSED STATE */
+  /* State: Closed */
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   padding: 0;
   pointer-events: none;
-
-  transition:
-    max-height 0.85s ease,
-    opacity 0.35s ease,
-    padding 0.85s ease;
-
-  z-index: 5;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
 }
 
 .site-nav.open {
-  max-height: 70vh;
+  max-height: 100vh;
   opacity: 1;
-  padding: 50px 0 28px;
+  padding: 60px 0 30px;
   pointer-events: auto;
+  overflow-y: auto;
 }
 
-@media (max-width: 640px) {
-  .site-nav.open {
-    overflow-y: auto;
-  }
-}
-
-.site-nav a {
+.site-nav a, 
+.submenu-toggle {
   display: block;
   width: 100%;
   max-width: 40ch;
-  margin: 0 auto;
   padding: 14px 20px;
   text-align: center;
-
-  font-family: "Montserrat", system-ui, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(16px, 3vw, 22px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #333;
   text-decoration: none;
   border-radius: 12px;
-
-  transition: background-color 0.25s ease, color 0.25s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:hover, 
+.submenu-toggle:hover {
   background-color: rgba(11, 60, 140, 0.08);
   color: #0b3c8c;
 }
 
 /* =========================
-   SUBMENU (RANGES) — ROBUST VERSION
+   SUBMENU (RANGES)
    ========================= */
-
 .nav-item {
   position: relative;
   width: 100%;
   max-width: 40ch;
 }
 
-.submenu-toggle {
-  all: unset;
-  display: block;
-  width: 100%;
-  padding: 14px 20px;
-  text-align: center;
-
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: clamp(16px, 3vw, 22px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  border-radius: 12px;
-}
-
 .submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
+  display: none;
   background: rgba(254, 244, 242, 0.98);
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-
-  min-width: 220px;
-  padding: 10px 0 10px 12px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 20;
 }
 
-/* DESKTOP: hover works */
-@media (hover: hover) {
-  .has-submenu:hover .submenu,
-  .submenu:hover {
-    opacity: 1;
-    pointer-events: auto;
+/* Desktop Hover */
+@media (min-width: 901px) {
+  .has-submenu:hover .submenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 220px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    padding: 10px 0;
+    z-index: 20;
   }
+  .submenu a { text-align: left; font-size: 15px; }
 }
 
-/* MOBILE / TOUCH (Samsung-safe) */
-@media (hover: none) {
+/* Mobile Toggle State */
+.has-submenu.open .submenu {
+  display: block;
+}
+
+@media (max-width: 900px) {
   .submenu {
-    position: static;
-    margin: 8px 0 0;
-    box-shadow: none;
-    background: transparent;
+    width: 100%;
     padding: 0;
   }
-
   .submenu a {
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
-  .has-submenu .submenu {
-    display: none;
-  }
-
-  .has-submenu.open .submenu {
-    display: block;
-  }
-
-  /* CRUCIAL FIX FOR SAMSUNG INTERNET */
-  .has-submenu:hover .submenu {
-    display: none !important;
+    font-size: 16px;
+    padding: 10px 20px;
   }
 }
 
 /* =========================
-   MAIN CONTENT
+   GRIDS & CONTENT
    ========================= */
-
 main {
   padding: 10px 20px;
   text-align: center;
 }
 
-@media (max-width: 640px) {
-  main {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+.range-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 20px auto;
 }
 
-/* =========================
-   WELCOME TEXT
-   ========================= */
-
-.welcome {
-  margin: 0 0 10px;
-  padding: 0;
-
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(12px, 2.1vw, 16px);
-
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  text-align: center;
+@media (max-width: 900px) {
+  .range-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.welcome-blue {
-  color: #0b3c8c;
-}
-
-.welcome-green {
-  color: #0a8a6a;
-}
-
-@media (max-width: 640px) {
-  .welcome {
-    font-size: clamp(11px, 3.8vw, 16px);
-    line-height: 1.4;
-    padding-inline: 8px;
-  }
-
-  .welcome span {
-    display: block;
-    white-space: nowrap;
-  }
-}
-
-/* =========================
-   RANGE HERO IMAGE
-   ========================= */
-
-.range-hero {
-  width: 100%;
+.range-card { text-decoration: none; color: inherit; text-align: center; }
+.range-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
   overflow: hidden;
-  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.4s ease;
 }
+.range-card:hover .range-image { transform: translateY(-4px); }
+.range-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.range-hero img {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  max-height: 35vh;
-  object-fit: contain;
-}
-
-@media (max-width: 640px) {
-  .range-hero img {
-    width: 100%;
-    max-height: 55vh;
-  }
-}
-
-/* =========================
-   FROG GRID (DESKTOP FIXED)
-   ========================= */
-
-.frog-grid {
-  display: grid;
-  gap: 14px;
-  justify-content: center;
-}
-
-/* MOBILE */
-@media (max-width: 640px) {
-  .frog-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .frog-grid .frog-tile:nth-child(5) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: 48%;
-  }
-
-  .frog-grid .frog-tile.large {
-    grid-column: 1 / -1;
-    justify-self: center;
-    margin-top: 22px;
-    width: 65%;
-  }
-}
-
-/* DESKTOP — PROPERLY CENTRED ROW OF 2 */
-@media (min-width: 641px) {
-  .frog-grid {
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  .frog-grid .frog-tile:nth-child(1) { grid-column: 2; }
-  .frog-grid .frog-tile:nth-child(2) { grid-column: 3; }
-  .frog-grid .frog-tile:nth-child(3) { grid-column: 4; }
-
-  .frog-grid .frog-tile:nth-child(4) { grid-column: 2; grid-row: 2; }
-  .frog-grid .frog-tile:nth-child(5) { grid-column: 4; grid-row: 2; }
-
-  .frog-grid .frog-tile.wide {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 80%;
-  }
-
-  .frog-grid .frog-tile.large {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 90%;
-    margin-top: 18px;
-  }
-}
-
-/* =========================
-   PLANET / PLANT / PLAQUE GRIDS
-   (UNCHANGED FROM YOUR WORKING VERSION)
-   ========================= */
-
-/* --- PLANETS --- */
-.planet-grid {
-  display: grid;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 420px;
-}
-
-@media (min-width: 900px) {
-  .planet-grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 960px;
-    align-items: center;
-  }
-
-  .planet-tile.tall {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 85%;
-    justify-self: center;
-  }
-
-  .planet-tile.wide {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-
-  .planet-tile.row {
-    grid-column: 2 / span 2;
-    grid-row: 2;
-  }
-}
-
-/* --- PLANTS --- */
-.plant-grid {
-  display: grid;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 420px;
-}
-
-@media (max-width: 640px) {
-  .plant-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .plant-tile.long {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (min-width: 900px) {
-  .plant-grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 960px;
-  }
-
-  .plant-tile.long {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: 85%;
-  }
-}
-
-/* --- BLUE PLAQUE --- */
-.plaque-grid {
-  display: grid;
-  place-items: center;
-  margin: 0 auto;
-  max-width: 320px;
-}
-
-/* =========================
-   MODALS (POP-UPS)
-   ========================= */
-
-.design-modal,
-.frog-modal {
+/* MODALS */
+.design-modal, .frog-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.75);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 100;
 }
-
-.design-modal.open,
-.frog-modal.open {
-  display: flex;
-}
-
-.design-modal img,
-.frog-modal img {
-  width: 92%;
-  max-width: 720px;
+.design-modal.open, .frog-modal.open { display: flex; }
+.design-modal img, .frog-modal img {
+  max-width: 90%;
   max-height: 85vh;
   object-fit: contain;
-  border-radius: 16px;
-  background: #fff;
+  border-radius: 12px;
 }
 
-/* Close button */
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-}
-
-@media (min-width: 900px) {
-  .design-modal img,
-  .frog-modal img {
-    max-height: 90vh;
-  }
-}
+footer { padding: 20px; text-align: center; }
+   
