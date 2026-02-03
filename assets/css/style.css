@@ -660,43 +660,45 @@ text-align: center;
 /* Desktop layout */
 @media (min-width: 641px) {
   .frog-grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 720px;
     margin: 0 auto;
-  }
-@media (min-width: 641px) {
-
-  /* Keep 3-column grid */
-  .frog-grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 720px;
-    margin: 0 auto;
+    justify-items: center; /* KEY: centres items within columns */
   }
 
-  /* Centre the 2-icon row (icons 4 & 5) */
-  
-/* Centre the 2-icon row properly */
-.frog-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* First row: normal 3 icons */
+  .frog-grid .frog-tile:nth-child(1),
+  .frog-grid .frog-tile:nth-child(2),
+  .frog-grid .frog-tile:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  /* SECOND ROW: place icons 4 & 5 in the MIDDLE TWO COLUMNS */
+  .frog-grid .frog-tile:nth-child(4) {
+    grid-column: 2; /* middle */
+  }
+
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: 3; /* right of middle */
+  }
+
+  /* Wide (multi) icon: its own centred row */
+  .frog-grid .frog-tile.wide {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 80%;
+  }
+
+  /* Large (cross) icon: its own centred row */
+  .frog-grid .frog-tile.large {
+    grid-column: 1 / -1; /* full width row */
+    justify-self: center;
+    max-width: 90%;
+    margin-top: 18px; /* same gap as other rows */
+  }
 }
 
-.frog-grid .frog-tile:nth-child(4),
-.frog-grid .frog-tile:nth-child(5) {
-  grid-column: span 1;
-}
-
-/* Create a centred two-column row */
-.frog-grid {
-  grid-template-areas:
-    "a b c"
-    ". d e";
-}
-
-.frog-grid .frog-tile:nth-child(1) { grid-area: a; }
-.frog-grid .frog-tile:nth-child(2) { grid-area: b; }
-.frog-grid .frog-tile:nth-child(3) { grid-area: c; }
-.frog-grid .frog-tile:nth-child(4) { grid-area: d; }
-.frog-grid .frog-tile:nth-child(5) { grid-area: e; }
 
   /* Wide (multi) icon: its own centred row */
   .frog-grid .frog-tile.wide {
