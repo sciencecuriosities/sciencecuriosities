@@ -397,31 +397,7 @@ text-align: center;
 /* =========================
    MOBILE SUBMENU
    ========================= */
-@media (hover: none) {
-  .has-submenu.open .submenu {
-    display: block !important; /* Force display on click */
-    opacity: 1;
-    pointer-events: auto;
-    position: static; /* Standard for mobile vertical menus */
-  }
-}
-@media (hover: none) {
-  .submenu {
-    position: static;
-    margin: 8px 0 0;
-    transform: none;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
-  }
 
-  .submenu a {
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
-   }
 .ranges {
   margin-top: 0px;
 }
@@ -430,7 +406,41 @@ text-align: center;
     overflow-y: auto;
   }
 }
+/* =========================
+   MOBILE SUBMENU (FIXED)
+   ========================= */
+@media (hover: none) {
+  /* 1. Reset the flyout panel to be a vertical list */
+  .submenu {
+    display: none;      /* Keep it truly hidden until clicked */
+    position: static;
+    margin: 8px 0 0;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    opacity: 1;         /* Reset opacity so display:block handles it */
+    pointer-events: auto;
+  }
 
+  /* 2. Show it ONLY when the parent is open */
+  .has-submenu.open .submenu {
+    display: block !important;
+  }
+
+  /* 3. Center the links for mobile */
+  .submenu a {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* 4. Ensure the main nav expands to fit the submenu */
+  .site-nav.open {
+    max-height: none;   /* Changed from 70vh to allow for submenu expansion */
+    overflow-y: visible;
+  }
+}
 .range-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
