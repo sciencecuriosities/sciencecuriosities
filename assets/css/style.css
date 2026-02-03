@@ -369,7 +369,7 @@ text-align: center;
 
   min-width: 220px;
   padding: 10px 0 10px 12px; /* visual spacing instead */
-
+  display: none;
   opacity: 0;
   transform: translateX(0);
   pointer-events: none;
@@ -385,10 +385,10 @@ text-align: center;
   font-size: 15px;
 }
 
-/* Hover reveal (desktop) */
+/* DESKTOP HOVER */
 @media (hover: hover) {
-  .has-submenu:hover .submenu,
-  .submenu:hover {
+  .has-submenu:hover .submenu {
+    display: block;
     opacity: 1;
     pointer-events: auto;
   }
@@ -397,7 +397,14 @@ text-align: center;
 /* =========================
    MOBILE SUBMENU
    ========================= */
-
+@media (hover: none) {
+  .has-submenu.open .submenu {
+    display: block !important; /* Force display on click */
+    opacity: 1;
+    pointer-events: auto;
+    position: static; /* Standard for mobile vertical menus */
+  }
+}
 @media (hover: none) {
   .submenu {
     position: static;
