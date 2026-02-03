@@ -674,13 +674,29 @@ text-align: center;
   }
 
   /* Centre the 2-icon row (icons 4 & 5) */
-  .frog-grid .frog-tile:nth-child(4) {
-    grid-column: 2;
-  }
+  
+/* Centre the 2-icon row properly */
+.frog-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-  .frog-grid .frog-tile:nth-child(5) {
-    grid-column: 3;
-  }
+.frog-grid .frog-tile:nth-child(4),
+.frog-grid .frog-tile:nth-child(5) {
+  grid-column: span 1;
+}
+
+/* Create a centred two-column row */
+.frog-grid {
+  grid-template-areas:
+    "a b c"
+    ". d e";
+}
+
+.frog-grid .frog-tile:nth-child(1) { grid-area: a; }
+.frog-grid .frog-tile:nth-child(2) { grid-area: b; }
+.frog-grid .frog-tile:nth-child(3) { grid-area: c; }
+.frog-grid .frog-tile:nth-child(4) { grid-area: d; }
+.frog-grid .frog-tile:nth-child(5) { grid-area: e; }
 
   /* Wide (multi) icon: its own centred row */
   .frog-grid .frog-tile.wide {
