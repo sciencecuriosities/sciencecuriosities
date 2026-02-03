@@ -213,18 +213,225 @@ main {
   text-align: center;
 }
 
-.range-grid {
+/* =========================
+   FROG GRID — CLEAN VERSION
+   ========================= */
+
+/* Base grid */
+.frog-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* ===== MOBILE (≤ 640px): 2 x 2 + centred 5th ===== */
+@media (max-width: 640px) {
+  .frog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 360px;
+  }
+
+  /* Centre the 5th square icon */
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 48%;
+  }
+
+  /* Long “mix” icon full row */
+  .frog-grid .frog-tile.wide {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 85%;
+    margin-top: 18px;
+  }
+
+  /* Cross icon its own row */
+  .frog-grid .frog-tile.large {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 80%;
+    margin-top: 18px;
+  }
+}
+
+/* ===== DESKTOP (≥ 641px): 5-COLUMN LOGIC ===== */
+@media (min-width: 641px) {
+  .frog-grid {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 900px;
+  }
+
+  /* Top row: . a . b . c . */
+  .frog-grid .frog-tile:nth-child(1) { grid-column: 2; }
+  .frog-grid .frog-tile:nth-child(2) { grid-column: 3; }
+  .frog-grid .frog-tile:nth-child(3) { grid-column: 4; }
+
+  /* Second row: . d . e . */
+  .frog-grid .frog-tile:nth-child(4) { grid-column: 2; }
+  .frog-grid .frog-tile:nth-child(5) { grid-column: 4; }
+
+  /* Long “mix” icon — full width, centred */
+  .frog-grid .frog-tile.wide {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 80%;
+    margin-top: 18px;
+  }
+
+  /* Cross icon — centred, same gap as others */
+  .frog-grid .frog-tile.large {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 75%;
+    margin-top: 18px;
+  }
+}
+
+/* Icon proportions */
+.frog-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+
+.frog-tile.wide img {
+  aspect-ratio: 5 / 1;   /* matches 1920 × 384 */
+  object-fit: contain;
+}
+/* =========================
+   PLANET GRID — CLEAN VERSION
+   ========================= */
+
+.planet-grid {
+  display: grid;
   gap: 16px;
-  max-width: 1100px;
-  margin: 20px auto;
+  margin: 0 auto;
+  max-width: 420px;
 }
 
-@media (max-width: 900px) {
-  .range-grid { grid-template-columns: repeat(2, 1fr); }
+/* ===== MOBILE: stacked (wide → row → tall) ===== */
+@media (max-width: 640px) {
+  .planet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planet-tile.wide,
+  .planet-tile.row {
+    width: 100%;
+  }
+
+  .planet-tile.tall {
+    width: 70%;
+    justify-self: center;
+  }
 }
 
+/* ===== DESKTOP: tall on left, others stacked ===== */
+@media (min-width: 900px) {
+  .planet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
+    align-items: center;
+  }
+
+  /* Tall spans two rows */
+  .planet-tile.tall {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 85%;
+    justify-self: center;
+  }
+
+  /* Wide above, row below */
+  .planet-tile.wide {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .planet-tile.row {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+}
+
+/* Icon styling */
+.planet-tile img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+/* =========================
+   PLANT GRID — CLEAN VERSION
+   ========================= */
+
+.plant-grid {
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+/* ===== MOBILE: 2×2 + long underneath ===== */
+@media (max-width: 640px) {
+  .plant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plant-tile.long {
+    grid-column: 1 / -1;
+  }
+
+  .plant-tile.long img {
+    aspect-ratio: 1920 / 872;
+    object-fit: contain;
+  }
+}
+
+/* ===== DESKTOP: 4 in a row + long below ===== */
+@media (min-width: 900px) {
+  .plant-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 960px;
+  }
+
+  .plant-tile.long {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 85%;
+  }
+
+  .plant-tile.long img {
+    aspect-ratio: 1920 / 872;
+    object-fit: contain;
+  }
+}
+
+/* Icon styling */
+.plant-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+/* =========================
+   BLUE PLAQUE GRID
+   ========================= */
+
+.plaque-grid {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.plaque-tile img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
 .range-card { text-decoration: none; color: inherit; text-align: center; }
 .range-image {
   position: relative;
