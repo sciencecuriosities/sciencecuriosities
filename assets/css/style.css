@@ -661,8 +661,8 @@ text-align: center;
 @media (min-width: 641px) {
   .frog-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 720px;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 900px;
     margin: 0 auto;
     gap: 14px;
   }
@@ -677,8 +677,8 @@ text-align: center;
   /* Row 2: centre the TWO icons visually */
   .frog-grid {
     grid-template-areas:
-      "a b c"
-      "d e .";
+      "a . b . c"
+      ". d . e .";
   }
 
   .frog-grid .frog-tile:nth-child(1) { grid-area: a; }
