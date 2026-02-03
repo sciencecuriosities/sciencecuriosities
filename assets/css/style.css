@@ -361,12 +361,315 @@ main {
 .planet-tile img {
   width: 100%;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-}
-/* =========================
-   PLANT GRID — CLEAN VERSION
-   ========================= */
+.ranges {
+    margin-top: 10px;
+  }
 
+  /* 2 × 2 icon grid */
+  .range-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+/* 3. UNIVERSAL: Title containment */
+.title-pill h1 {
+  max-width: 92vw;
+}
+.range-hero {
+  width: 100%;
+  overflow: hidden;
+  background: #fff; /* intentional white frame if needed */
+}
+.range-hero img {
+  width: 70%;
+  height: auto;          /* preserves full image */
+  display: block;
+  
+  margin-left: auto;
+  margin-right: auto;
+   
+  max-height: 35vh;      /* prevents it dominating small screens */
+  object-fit: contain;  /* ensures NO cropping */
+}
+/* Plant range only — image is taller */
+.range-hero--plants img {
+  max-height: 40vh;
+   margin-top: -16px;/* reduce vertical dominance */
+}
+@media (max-width: 640px) {
+   .range-hero img {
+  width: 100%;
+  height: auto;          /* preserves full image */
+  display: block;
+ max-height: 55vh;      /* prevents it dominating small screens */
+  object-fit: contain;  /* ensures NO cropping */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Plant range only — image is taller */
+.range-hero--plants img {
+  max-height: 40vh;
+   margin-top: -16px;/* reduce vertical dominance */
+}
+}
+      
+.range-intro {
+  margin: 24px auto 0;
+  text-align: center;
+
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 2.4vw, 18px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #0b3c8c;
+}
+@media (max-width: 640px) {
+  .range-intro {
+    margin-top: 16px;
+  }
+}
+/* Instruction text */
+.range-instruction {
+  text-align: center;
+  font-family: "Montserrat", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 18px 0 22px;
+}
+
+/* Grid container */
+.frog-grid {
+  display: grid;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* Mobile layout */
+@media (max-width: 640px) {
+  .frog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Centre the 5th square */
+  .frog-grid .frog-tile:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 48%;
+  }
+}
+@media (max-width: 640px) {
+  .frog-grid .frog-tile.large {
+    grid-column: 1 / -1;   /* full row */
+    justify-self: center; /* centred */
+    margin-top: 22px;     /* clearer separation */
+    width: 65%;
+  }
+}
+/* Desktop layout */
+@media (min-width: 641px) {
+  .frog-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 14px;
+  }
+
+  /* Row 1: normal 3 icons */
+  .frog-grid .frog-tile:nth-child(1),
+  .frog-grid .frog-tile:nth-child(2),
+  .frog-grid .frog-tile:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  /* Row 2: centre the TWO icons visually */
+  .frog-grid {
+    grid-template-areas:
+      "a . b . c"
+      ". d . e .";
+  }
+
+  .frog-grid .frog-tile:nth-child(1) { grid-area: a; }
+  .frog-grid .frog-tile:nth-child(2) { grid-area: b; }
+  .frog-grid .frog-tile:nth-child(3) { grid-area: c; }
+  .frog-grid .frog-tile:nth-child(4) { grid-area: d; }
+  .frog-grid .frog-tile:nth-child(5) { grid-area: e; }
+
+  /* Wide (multi) icon: its own centred row */
+  .frog-grid .frog-tile.wide {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 80%;
+  }
+
+  /* Large (cross) icon: its own centred row */
+  .frog-grid .frog-tile.large {
+    grid-column: 3;
+    justify-self: center;
+    max-width: 90%;
+    margin-top: 18px; /* same gap as other rows */
+  }
+}
+
+
+/* Tiles */
+.frog-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.frog-tile:focus {
+  outline: none;
+}
+.frog-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.frog-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+/* Special sizes */
+.frog-tile.wide {
+  grid-column: span 2;
+}
+
+.frog-tile.large img {
+  aspect-ratio: 1 / 1;
+  transform: scale(1.15);
+}
+/* Wide (multi frog) tile */
+.frog-tile.wide img {
+  aspect-ratio: 5 / 1;   /* matches 1920 × 384 */
+  object-fit: contain;  /* no cropping, no squashing */
+}
+.design-modal,
+.frog-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.design-modal.open,
+.frog-modal.open {
+  display: flex;
+}
+.design-modal img,
+.frog-modal img {
+  width: 92%;
+  max-width: 720px;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Desktop tweak */
+@media (min-width: 900px) {
+   .design-modal img,
+  .frog-modal img {
+    max-height: 90vh;
+  }
+}
+.planet-grid {
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+.planet-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.planet-tile img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+@media (max-width: 640px) {
+  .planet-tile.wide,
+  .planet-tile.row {
+    width: 100%;
+  }
+
+  .planet-tile.tall {
+    width: 70%;
+    justify-self: center;
+  }
+}
+@media (min-width: 900px) {
+  .planet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
+    align-items: center;
+  }
+
+  /* Tall spans two rows */
+  .planet-tile.tall {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 85%;
+    justify-self: center;
+  }
+
+  /* Wide & row stacked beside */
+  .planet-tile.wide {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .planet-tile.row {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+}
+.design-modal img,
+.frog-modal img {
+  width: 92%;
+  max-width: 720px;
+  max-height: 85vh;
+  object-fit: contain;
+}
 .plant-grid {
   display: grid;
   gap: 16px;
@@ -374,7 +677,25 @@ main {
   max-width: 420px;
 }
 
-/* ===== MOBILE: 2×2 + long underneath ===== */
+.plant-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.plant-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
 @media (max-width: 640px) {
   .plant-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -389,8 +710,6 @@ main {
     object-fit: contain;
   }
 }
-
-/* ===== DESKTOP: 4 in a row + long below ===== */
 @media (min-width: 900px) {
   .plant-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -408,18 +727,6 @@ main {
     object-fit: contain;
   }
 }
-
-/* Icon styling */
-.plant-tile img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-}
-/* =========================
-   BLUE PLAQUE GRID
-   ========================= */
-
 .plaque-grid {
   display: grid;
   place-items: center;
@@ -427,10 +734,33 @@ main {
   max-width: 320px;
 }
 
+
+.plaque-tile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .plaque-tile img {
   width: 100%;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plaque-tile:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+.blue-plaque-page .welcome-blue {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.4;
+   }
+.blue-plaque-page .welcome span {
+  white-space: normal;
+}adow: 0 8px 20px rgba(0,0,0,0.14);
 }
 .range-card { text-decoration: none; color: inherit; text-align: center; }
 .range-image {
