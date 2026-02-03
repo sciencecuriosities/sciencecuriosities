@@ -111,45 +111,32 @@
 document.addEventListener('DOMContentLoaded', () => {
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
-  const icon = menuButton.querySelector('.icon');
+  const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
-  function closeMenu() {
-    nav.classList.remove('open');
-    icon.textContent = '☰';
-  }
-
-  // Function to handle the Main Hamburger
-const toggleMainMenu = (e) => {
-  e.preventDefault(); // Prevents "ghost clicks" on mobile
-  e.stopPropagation();
-  const isOpen = nav.classList.toggle('open');
-  icon.textContent = isOpen ? '✕' : '☰';
-};
-
-// Apply to main button
-menuButton.addEventListener('click', toggleMainMenu);
-menuButton.addEventListener('touchstart', toggleMainMenu, { passive: false });
-
-// NEW: Handle the "Ranges" Submenu Button
-document.querySelectorAll('.submenu-toggle').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    if (window.matchMedia("(hover: none)").matches) {
-      e.preventDefault();
-      e.stopPropagation();
-      const parent = btn.closest('.has-submenu');
+  const handleToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // If it's the main menu button
+    if (e.currentTarget === menuButton) {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.querySelector('.icon').textContent = isOpen ? '✕' : '☰';
+    } 
+    // If it's a submenu toggle (Ranges)
+    else {
+      const parent = e.currentTarget.closest('.has-submenu');
       parent.classList.toggle('open');
     }
-  });
-});
+  };
 
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
-      closeMenu();
-    }
-  });
+  // Main Button
+  menuButton.addEventListener('click', handleToggle);
+  menuButton.addEventListener('touchstart', handleToggle, { passive: false });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+  // Ranges Button
+  submenuToggles.forEach(btn => {
+    btn.addEventListener('click', handleToggle);
+    btn.addEventListener('touchstart', handleToggle, { passive: false });
   });
 });
 </script>
