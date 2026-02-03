@@ -26,49 +26,36 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
-  /* MOBILE DEFAULT: fill the area entirely */
   aspect-ratio: 8 / 5;
   background-size: cover; 
 }
 
 @media (min-width: 901px) {
   .site-header {
-    /* DESKTOP: Match your image's 1920x600 ratio (3.2:1) */
     aspect-ratio: 16 / 5; 
-    /* This ensures the full width is visible without cropping sides */
     background-size: 100% 100%; 
     max-height: 50vh;
   }
 }
+
 /* =========================
    RANGE-SPECIFIC BANNERS
    ========================= */
-
-.banner--frog {
-  background-image: url("../images/frog-banner-faded.jpg");
-}
-
-.banner--planet {
-  background-image: url("../images/planet-banner-faded.jpg");
-}
-
-.banner--plant {
-  background-image: url("../images/plant-banner-faded.jpg");
-}
-.banner--plaque {
-  background-image: url("../images/plaque-banner-faded.jpg");
-}
+.banner--frog { background-image: url("../images/frog-banner-faded.jpg"); }
+.banner--planet { background-image: url("../images/planet-banner-faded.jpg"); }
+.banner--plant { background-image: url("../images/plant-banner-faded.jpg"); }
+.banner--plaque { background-image: url("../images/plaque-banner-faded.jpg"); }
 
 /* =========================
    TITLE PILL
    ========================= */
-
 .title-pill {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .title-pill h1 {
@@ -78,37 +65,26 @@ body {
   border-radius: 999px;
   display: flex;
   gap: 0.35em;
-
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-
   font-size: clamp(18px, 3.5vw, 56px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.18);
   white-space: nowrap;
 }
 
-.title-pill .science {
-  color: #0b3c8c;
-}
-
-.title-pill .curiosities {
-  color: #0a8a6a;
-}
-.title-pill {
-  z-index: 2;
-}
+.title-pill .science { color: #0b3c8c; }
+.title-pill .curiosities { color: #0a8a6a; }
 
 /* =========================
    BURGER BUTTON
    ========================= */
-
 .menu-toggle {
   position: absolute;
   top: 0.75%;
   left: 0.5%;
-  background: #fef4f2; /* exact Canva colour */
+  background: #fef4f2;
   border: none;
   border-radius: 50%;
   width: 44px;
@@ -116,877 +92,165 @@ body {
   font-size: 26px;
   cursor: pointer;
   z-index: 10;
-
   display: flex;
   align-items: center;
   justify-content: center;
-   }
+}
+
 .menu-toggle:hover {
-  background-color: #f6e6e2; /* slightly darker than #fef4f2 */
-}
-@media (hover: none) {
-  .submenu a {
-    padding: 10px 0;
-  }
-
-  .has-submenu.open {
-    margin-bottom: 8px;
-  }
-}
-/* Tell the browser not to wait for scroll gestures on these buttons */
-.menu-toggle, 
-.submenu-toggle {
-  touch-action: manipulation;
-   cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* Removes the grey box on tap */
-}
-/* 1. DESKTOP ONLY: Normal hover behavior */
-@media (hover: hover) {
-  .has-submenu:hover .submenu {
-    display: block;
-  }
-}
-.submenu-toggle {
-  /* Keep your unset, but re-add these for Samsung's touch engine */
-  cursor: pointer;
-  touch-action: manipulation;
-  display: block;
-  width: 100%;
-  
-  /* IMPORTANT: Give it a background, even if transparent, 
-     to ensure the "hit area" is registered on Galaxy devices */
-  background-color: rgba(0,0,0,0); 
-  
-  /* Ensure it has a minimum height for thumbs */
-  min-height: 44px; 
+  background-color: #f6e6e2;
 }
 
-/* Force the submenu to be visible when the class is present */
-@media (hover: none) {
-  .has-submenu.open .submenu {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    max-height: 1000px !important; /* Ensure it's not being clipped */
-  }
-}
 /* =========================
-   ETSY MENU LINK
+   NAVIGATION PANEL
    ========================= */
-
-.nav-etsy {
-  margin-top: 8px;
-  font-size: 0.9em;
-  letter-spacing: 0.06em;
-
-  color: #0a8a6a; /* your green */
-  background: rgba(10, 138, 106, 0.08);
-
-  max-width: 34ch;
-}
-
-.nav-etsy:hover,
-.nav-etsy:focus-visible {
-  background: rgba(10, 138, 106, 0.15);
-  color: #0a8a6a;
-}
-/* =========================
-   PAGE CONTENT
-   ========================= */
-
-/* Find this near the top and update it: */
-main {
-  padding: 10px 20px; /* 10px top/bottom, 20px sides */
-  text-align: center;
-}
-@media (max-width: 640px) {
-  main {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-}
-
-.welcome {
-  margin: 0;
-  padding: 0;
-
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(12px, 2.1vw, 16px);
-
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  line-height: 1;
-
-text-align: center;
-
-  max-width: 100%;
-  overflow: visible;
-  text-overflow: clip;
-}
-.welcome span {
-  display: inline;
-}
-
-.welcome-blue {
-  color: #0b3c8c; /* company blue */
-}
-
-.welcome-green {
-  color: #0a8a6a; /* title green */
-}
-@media (max-width: 640px) {
-  .welcome {
-    font-size: clamp(11px, 3.8vw, 16px);
-    line-height: 1.4;
-    text-align: center;
-
-    /* THIS is the key change */
-    padding-inline: 8px;   /* was 15px */
-  }
-
-  .welcome span {
-    display: block;
-    white-space: nowrap;
-    letter-spacing: 0.05em;
-  }
-
-  .welcome-green {
-    letter-spacing: 0.02em;
-  }
-}
-@media (max-width: 640px) {
-  .welcome-green {
-    font-size: 0.95em;   /* 5% smaller than blue */
-  }
-}
-
-/* Extra safety for very small screens (under 330px) */
-@media (max-width: 330px) {
-  .welcome {
-    font-size: 10px;
-  }
-}
-@media (max-width: 360px) {
-  .welcome-green {
-    font-size: 0.92em;
-  }
-}
-.welcome {
-  margin-bottom: 10px;
-}
-@media (min-width: 900px) {
-  .welcome {
-    margin-bottom: 12px;
-  }
-}
-
-@media (max-width: 640px) {
-  .welcome {
-    margin-bottom: 12px;
-  }
-}
-
-
-/* NAVIGATION PANEL*/
-
-/* Update your existing .site-nav rule */
 .site-nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-
   background: rgba(254, 244, 242, 0.98);
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
 
-  /* CLOSED STATE */
+  /* State: Closed */
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   padding: 0;
   pointer-events: none;
-
-  transition:
-    max-height 0.85s ease,
-    opacity 0.35s ease,
-    padding 0.85s ease;
-
-  z-index: 5;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
 }
-.site-nav {
-  touch-action: pan-y; /* Allows scrolling but captures taps quickly */
-}
-/* Update your existing .site-nav.open rule */
+
 .site-nav.open {
-  max-height: 70vh; /* responsive, safe on all devices */
+  max-height: 100vh;
   opacity: 1;
-  padding: 50px 0 28px;
+  padding: 60px 0 30px;
   pointer-events: auto;
+  overflow-y: auto;
 }
 
-
-.site-nav a {
+.site-nav a, 
+.submenu-toggle {
   display: block;
   width: 100%;
   max-width: 40ch;
-  margin: 0 auto;
   padding: 14px 20px;
-   
-   text-align: center;
-
-  font-family: "Montserrat", system-ui, sans-serif;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(16px, 3vw, 22px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #333;
   text-decoration: none;
   border-radius: 12px;
-
-  transition: background-color 0.25s ease, color 0.25s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
-  background-color: rgba(11, 60, 140, 0.08); /* soft blue tint */
+.site-nav a:hover, 
+.submenu-toggle:hover {
+  background-color: rgba(11, 60, 140, 0.08);
   color: #0b3c8c;
 }
+
 /* =========================
    SUBMENU (RANGES)
    ========================= */
-
 .nav-item {
   position: relative;
   width: 100%;
   max-width: 40ch;
 }
 
-.submenu-toggle {
-  display: block;
-  position: relative;
-  z-index: 10; width: 100%;
-  padding: 14px 20px;
-  text-align: center;
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: clamp(16px, 3vw, 22px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 12px;
-  background: rgba(0,0,0,0); /* Essential for some Samsung Chrome versions */
-  border: none;
-  min-height: 50px; /* Standard accessible touch target size */
-}
-
-.submenu-toggle:hover,
-.submenu-toggle:focus-visible {
-  background-color: rgba(11, 60, 140, 0.08);
-  color: #0b3c8c;
-}
-
-/* Flyout panel */
 .submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;          /* still to the right */
-  margin-left: 0;      /* REMOVE the gap */
-
-  background: rgba(254, 244, 242, 0.98);
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-
-  min-width: 220px;
-  padding: 10px 0 10px 12px; /* visual spacing instead */
   display: none;
-  opacity: 0;
-  transform: translateX(0);
-  pointer-events: none;
-
-  transition: opacity 0.25s ease;
-  z-index: 20;
+  background: rgba(254, 244, 242, 0.98);
 }
 
-.submenu a {
-  padding: 12px 20px;
-  display: block;
-  text-align: left;
-  font-size: 15px;
-}
-
-/* DESKTOP HOVER */
-@media (hover: hover) {
+/* Desktop Hover */
+@media (min-width: 901px) {
   .has-submenu:hover .submenu {
     display: block;
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-/* =========================
-   MOBILE SUBMENU
-   ========================= */
-
-.ranges {
-  margin-top: 0px;
-}
-@media (max-width: 640px) {
-  .site-nav.open {
-    overflow-y: auto;
-  }
-}
-/* =========================
-   MOBILE SUBMENU (FIXED)
-   ========================= */
-@media (hover: none) {
-  /* 1. Reset the flyout panel to be a vertical list */
-  .submenu {
-    display: none;      /* Keep it truly hidden until clicked */
-    position: static;
-    margin: 8px 0 0;
-    transform: none;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
-    opacity: 1;         /* Reset opacity so display:block handles it */
-    pointer-events: none;
-  }
-
-  /* 2. Show it ONLY when the parent is open */
-  .has-submenu.open .submenu {
-    display: block !important;
-    visibility: visible;
-  }
-
-  /* 3. Center the links for mobile */
-  .submenu a {
-    text-align: center;
-    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 220px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
     padding: 10px 0;
+    z-index: 20;
   }
+  .submenu a { text-align: left; font-size: 15px; }
+}
 
-  /* 4. Ensure the main nav expands to fit the submenu */
-  .site-nav.open {
-    max-height: none;   /* Changed from 70vh to allow for submenu expansion */
-    overflow-y: visible;
+/* Mobile Toggle State */
+.has-submenu.open .submenu {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .submenu {
+    width: 100%;
+    padding: 0;
+  }
+  .submenu a {
+    font-size: 16px;
+    padding: 10px 20px;
   }
 }
+
+/* =========================
+   GRIDS & CONTENT
+   ========================= */
+main {
+  padding: 10px 20px;
+  text-align: center;
+}
+
 .range-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   max-width: 1100px;
-  margin: 0 auto;
-}
-.range-card {
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
+  margin: 20px auto;
 }
 
-.range-card h2 {
-  margin-top: 8px;
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: clamp(14px, 2vw, 18px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+@media (max-width: 900px) {
+  .range-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+.range-card { text-decoration: none; color: inherit; text-align: center; }
 .range-image {
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.4s ease;
 }
-.range-image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.6s ease;
-}
+.range-card:hover .range-image { transform: translateY(-4px); }
+.range-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.range-image .hover-image {
-  opacity: 0;
-}
-
-.range-card:hover .hover-image {
-  opacity: 1;
-}
-
-.range-card:hover img:not(.hover-image) {
-  opacity: 0;
-}
-@media (max-width: 900px) {
-  .range-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.range-card:hover .range-image {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
-}
-
-.range-image {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-@media (min-width: 900px) {
-  .range-card h2 {
-    margin-top: 6px;
-  }
-}
-
-/* =========================
-   MOBILE: 2 x 2 ICON GRID
-   ========================= */
-
-  /* Title containment */
-  .title-pill h1 {
-    max-width: 92vw;
-  }
-/* =========================
-   CLEANUP & RESPONSIVE FIXES
-   ========================= */
-
-/* 1. DESKTOP ONLY: Tighten spacing to keep labels on screen */
-@media (min-width: 901px) {
-  main {
-    padding-top: 10px; 
-  }
-  .ranges {
-    margin-top: 0px; 
-  }
-}
-
-/* 2. MOBILE ONLY (640px and below): 2x2 Grid and Tight Spacing */
-@media (max-width: 640px) {
-  /* Banner: Adjust aspect ratio to show more collage height */
-  .site-header {
-    aspect-ratio: 8 / 5;
-    background-position: center top;
-  }
-
-  /* Title: Maintain size but ensure it doesn't overflow */
-  .title-pill h1 {
-    font-size: clamp(22px, 6vw, 34px);
-    font-weight: 600;
-    padding: 0.6em 1.4em;
-    letter-spacing: 0.14em;
-    max-width: 92vw;
-    justify-content: center;
-  }
-
-  /* Pull content upward to eliminate the gap */
-  main {
-    padding-top: 8px; /* Reduced from 12px */
-    padding-bottom: 16px;
-  }
-
-  .ranges {
-    margin-top: 10px;
-  }
-
-  /* 2 × 2 icon grid */
-  .range-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
-
-/* 3. UNIVERSAL: Title containment */
-.title-pill h1 {
-  max-width: 92vw;
-}
-.range-hero {
-  width: 100%;
-  overflow: hidden;
-  background: #fff; /* intentional white frame if needed */
-}
-.range-hero img {
-  width: 70%;
-  height: auto;          /* preserves full image */
-  display: block;
-  
-  margin-left: auto;
-  margin-right: auto;
-   
-  max-height: 35vh;      /* prevents it dominating small screens */
-  object-fit: contain;  /* ensures NO cropping */
-}
-/* Plant range only — image is taller */
-.range-hero--plants img {
-  max-height: 40vh;
-   margin-top: -16px;/* reduce vertical dominance */
-}
-@media (max-width: 640px) {
-   .range-hero img {
-  width: 100%;
-  height: auto;          /* preserves full image */
-  display: block;
- max-height: 55vh;      /* prevents it dominating small screens */
-  object-fit: contain;  /* ensures NO cropping */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* Plant range only — image is taller */
-.range-hero--plants img {
-  max-height: 40vh;
-   margin-top: -16px;/* reduce vertical dominance */
-}
-}
-      
-.range-intro {
-  margin: 24px auto 0;
-  text-align: center;
-
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 500;
-  font-size: clamp(14px, 2.4vw, 18px);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  color: #0b3c8c;
-}
-@media (max-width: 640px) {
-  .range-intro {
-    margin-top: 16px;
-  }
-}
-/* Instruction text */
-.range-instruction {
-  text-align: center;
-  font-family: "Montserrat", system-ui, sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin: 18px 0 22px;
-}
-
-/* Grid container */
-.frog-grid {
-  display: grid;
-  gap: 14px;
-  justify-content: center;
-}
-
-/* Mobile layout */
-@media (max-width: 640px) {
-  .frog-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  /* Centre the 5th square */
-  .frog-grid .frog-tile:nth-child(5) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: 48%;
-  }
-}
-@media (max-width: 640px) {
-  .frog-grid .frog-tile.large {
-    grid-column: 1 / -1;   /* full row */
-    justify-self: center; /* centred */
-    margin-top: 22px;     /* clearer separation */
-    width: 65%;
-  }
-}
-/* Desktop layout */
-@media (min-width: 641px) {
-  .frog-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 900px;
-    margin: 0 auto;
-    gap: 14px;
-  }
-
-  /* Row 1: normal 3 icons */
-  .frog-grid .frog-tile:nth-child(1),
-  .frog-grid .frog-tile:nth-child(2),
-  .frog-grid .frog-tile:nth-child(3) {
-    grid-column: span 1;
-  }
-
-  /* Row 2: centre the TWO icons visually */
-  .frog-grid {
-    grid-template-areas:
-      "a . b . c"
-      ". d . e .";
-  }
-
-  .frog-grid .frog-tile:nth-child(1) { grid-area: a; }
-  .frog-grid .frog-tile:nth-child(2) { grid-area: b; }
-  .frog-grid .frog-tile:nth-child(3) { grid-area: c; }
-  .frog-grid .frog-tile:nth-child(4) { grid-area: d; }
-  .frog-grid .frog-tile:nth-child(5) { grid-area: e; }
-
-  /* Wide (multi) icon: its own centred row */
-  .frog-grid .frog-tile.wide {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 80%;
-  }
-
-  /* Large (cross) icon: its own centred row */
-  .frog-grid .frog-tile.large {
-    grid-column: 3;
-    justify-self: center;
-    max-width: 90%;
-    margin-top: 18px; /* same gap as other rows */
-  }
-}
-
-
-/* Tiles */
-.frog-tile {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-.frog-tile:focus {
-  outline: none;
-}
-.frog-tile img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.frog-tile:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-}
-
-/* Special sizes */
-.frog-tile.wide {
-  grid-column: span 2;
-}
-
-.frog-tile.large img {
-  aspect-ratio: 1 / 1;
-  transform: scale(1.15);
-}
-/* Wide (multi frog) tile */
-.frog-tile.wide img {
-  aspect-ratio: 5 / 1;   /* matches 1920 × 384 */
-  object-fit: contain;  /* no cropping, no squashing */
-}
-.design-modal,
-.frog-modal {
+/* MODALS */
+.design-modal, .frog-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.75);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 100;
 }
-.design-modal.open,
-.frog-modal.open {
-  display: flex;
-}
-.design-modal img,
-.frog-modal img {
-  width: 92%;
-  max-width: 720px;
+.design-modal.open, .frog-modal.open { display: flex; }
+.design-modal img, .frog-modal img {
+  max-width: 90%;
   max-height: 85vh;
   object-fit: contain;
-  border-radius: 16px;
-  background: #fff;
+  border-radius: 12px;
 }
 
-/* Close button */
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-}
-
-/* Desktop tweak */
-@media (min-width: 900px) {
-   .design-modal img,
-  .frog-modal img {
-    max-height: 90vh;
-  }
-}
-.planet-grid {
-  display: grid;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 420px;
-}
-.planet-tile {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.planet-tile img {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.planet-tile:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-}
-@media (max-width: 640px) {
-  .planet-tile.wide,
-  .planet-tile.row {
-    width: 100%;
-  }
-
-  .planet-tile.tall {
-    width: 70%;
-    justify-self: center;
-  }
-}
-@media (min-width: 900px) {
-  .planet-grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 960px;
-    align-items: center;
-  }
-
-  /* Tall spans two rows */
-  .planet-tile.tall {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 85%;
-    justify-self: center;
-  }
-
-  /* Wide & row stacked beside */
-  .planet-tile.wide {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-
-  .planet-tile.row {
-    grid-column: 2 / span 2;
-    grid-row: 2;
-  }
-}
-.design-modal img,
-.frog-modal img {
-  width: 92%;
-  max-width: 720px;
-  max-height: 85vh;
-  object-fit: contain;
-}
-.plant-grid {
-  display: grid;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 420px;
-}
-
-.plant-tile {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.plant-tile img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.plant-tile:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-}
-@media (max-width: 640px) {
-  .plant-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .plant-tile.long {
-    grid-column: 1 / -1;
-  }
-
-  .plant-tile.long img {
-    aspect-ratio: 1920 / 872;
-    object-fit: contain;
-  }
-}
-@media (min-width: 900px) {
-  .plant-grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 960px;
-  }
-
-  .plant-tile.long {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: 85%;
-  }
-
-  .plant-tile.long img {
-    aspect-ratio: 1920 / 872;
-    object-fit: contain;
-  }
-}
-.plaque-grid {
-  display: grid;
-  place-items: center;
-  margin: 0 auto;
-  max-width: 320px;
-}
-
-
-.plaque-tile {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.plaque-tile img {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.plaque-tile:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-}
-
-.blue-plaque-page .welcome-blue {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  line-height: 1.4;
-   }
-.blue-plaque-page .welcome span {
-  white-space: normal;
-}
-footer,
-.site-footer {
-  text-align: center;
-}
+footer { padding: 20px; text-align: center; }
