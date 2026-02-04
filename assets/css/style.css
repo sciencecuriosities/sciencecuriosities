@@ -169,21 +169,26 @@ body {
 /* =========================
    SUBMENU (RANGES)
    ========================= */
+
 .nav-item {
   position: relative;
   width: 100%;
   max-width: 40ch;
 }
 
+/* Base state */
 .submenu {
   display: none;
   background: rgba(254, 244, 242, 0.98);
 }
-.submenu {
-  pointer-events: auto;
-}
-/* Desktop Hover */
+
+/* ----- DESKTOP (HOVER) ----- */
 @media (min-width: 901px) {
+
+  .submenu {
+    display: none; /* keep hidden by default */
+  }
+
   .has-submenu:hover .submenu {
     display: block;
     position: absolute;
@@ -195,10 +200,14 @@ body {
     padding: 10px 0;
     z-index: 20;
   }
-  .submenu a { text-align: left; font-size: 15px; }
+
+  .submenu a {
+    text-align: left;
+    font-size: 15px;
+  }
 }
 
-/* Mobile Toggle State */
+/* ----- MOBILE (TAP TO OPEN) ----- */
 .has-submenu.open .submenu {
   display: block;
 }
@@ -208,31 +217,24 @@ body {
     width: 100%;
     padding: 0;
   }
+
   .submenu a {
     font-size: 16px;
     padding: 10px 20px;
   }
 }
 
-@media (max-width: 640px) {
-  .welcome {
-    font-size: clamp(11px, 3.8vw, 16px);
-    line-height: 1.4;
-    text-align: center;
-    padding-inline: 8px;
-  }
+/* =========================
+   WELCOME TEXT
+   ========================= */
 
-  .welcome span {
-    display: block;
-    white-space: nowrap;
-    letter-spacing: 0.05em;
-  }
-
-  .welcome-green {
-    font-size: 0.95em;
-    letter-spacing: 0.02em;
-  }
-   }
+.welcome {
+  max-width: 72ch;
+  margin: 10px auto 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
 /* =========================
    GRIDS & CONTENT
    ========================= */
