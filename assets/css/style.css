@@ -772,7 +772,8 @@ main {
   transition: transform 0.4s ease;
 }
   /* 2 × 2 icon grid */
-  .range-grid {
+  @media (max-width: 640px) {
+     .range-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
