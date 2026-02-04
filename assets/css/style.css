@@ -214,7 +214,69 @@ main {
 }
 .range-grid {
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
+.range-card {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+.range-card h2 {
+  margin-top: 8px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.range-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.range-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+.range-image .hover-image {
+  opacity: 0;
+}
+
+.range-card:hover .hover-image {
+  opacity: 1;
+}
+
+.range-card:hover img:not(.hover-image) {
+  opacity: 0;
+}
+@media (max-width: 900px) {
+  .range-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.range-card:hover .range-image {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
+}
+
+.range-image {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+@media (min-width: 900px) {
+  .range-card h2 {
+    margin-top: 6px;
+  }
+   }
 /* =========================
    FROG GRID — CLEAN VERSION
    ========================= */
@@ -771,13 +833,7 @@ main {
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
   transition: transform 0.4s ease;
 }
-  /* 2 × 2 icon grid */
-  @media (max-width: 640px) {
-     .range-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
+  
 .range-card:hover .range-image { transform: translateY(-4px); }
 .range-image img { width: 100%; height: 100%; object-fit: cover; }
 
