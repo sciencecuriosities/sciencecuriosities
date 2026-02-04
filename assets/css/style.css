@@ -851,7 +851,7 @@ main {
    }
 .blue-plaque-page .welcome span {
   white-space: normal;
-
+}
 .range-card { text-decoration: none; color: inherit; text-align: center; }
 .range-image {
   position: relative;
@@ -884,8 +884,8 @@ main {
 }
 
 footer { padding: 20px; text-align: center; }
-   footer,
    
+   footer,   
 .site-footer {
   text-align: center;
 }
