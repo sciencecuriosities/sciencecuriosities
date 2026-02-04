@@ -212,7 +212,9 @@ main {
   padding: 10px 20px;
   text-align: center;
 }
-
+.range-grid {
+  display: grid;
+}
 /* =========================
    FROG GRID — CLEAN VERSION
    ========================= */
@@ -364,14 +366,13 @@ main {
 .ranges {
     margin-top: 10px;
   }
-
-  /* 2 × 2 icon grid */
+@media (max-width: 640px) {
+     /* 2 × 2 icon grid */
   .range-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 }
-
 /* 3. UNIVERSAL: Title containment */
 .title-pill h1 {
   max-width: 92vw;
