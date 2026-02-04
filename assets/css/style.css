@@ -73,6 +73,15 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.18);
   white-space: nowrap;
 }
+@media (max-width: 640px) {
+  .title-pill h1 {
+    font-size: clamp(22px, 6vw, 34px);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    max-width: 92vw;
+    justify-content: center;
+  }
+}
 
 .title-pill .science { color: #0b3c8c; }
 .title-pill .curiosities { color: #0a8a6a; }
@@ -205,6 +214,25 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .welcome {
+    font-size: clamp(11px, 3.8vw, 16px);
+    line-height: 1.4;
+    text-align: center;
+    padding-inline: 8px;
+  }
+
+  .welcome span {
+    display: block;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .welcome-green {
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
+  }
+   }
 /* =========================
    GRIDS & CONTENT
    ========================= */
