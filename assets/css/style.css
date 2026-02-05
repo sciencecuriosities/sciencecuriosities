@@ -275,6 +275,22 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.range-card.frog h2 {
+  color: #0a8a6a; /* frog green */
+}
+
+.range-card.planet h2 {
+  color: #9b7a5a; /* Saturn brown */
+}
+
+.range-card.plant h2 {
+  color: #c56a40; /* terracotta */
+}
+
+.range-card.plaque h2 {
+  color: #0b3c8c; /* company blue */
+}
+
 .range-image {
   position: relative;
   aspect-ratio: 1 / 1;
