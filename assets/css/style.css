@@ -235,6 +235,16 @@ body {
   line-height: 1.5;
   text-align: center;
 }
+/* Colour styling for the two sentences */
+.welcome-blue {
+  color: #0b3c8c; /* your company blue */
+  display: block;
+}
+
+.welcome-green {
+  color: #0a8a6a; /* your company green */
+  display: block;
+}
 /* =========================
    GRIDS & CONTENT
    ========================= */
